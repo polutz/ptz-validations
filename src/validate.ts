@@ -1,6 +1,6 @@
 import allErrors from './allErrors';
 import { IError } from './IError';
-import { IValidateStringArgs } from './IPropValidation';
+import { IValidateEmailArgs, IValidateStringArgs } from './IValidate';
 
 export function validateString(args: IValidateStringArgs): IError[] {
 
@@ -26,4 +26,21 @@ export function validateString(args: IValidateStringArgs): IError[] {
         }];
 
     return [];
+}
+
+export function isValidEmail(email: string): boolean {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // tslint:disable-line:max-line-length
+    return re.test(email);
+}
+
+export function validateEmail(args: IValidateEmailArgs): IError[] {
+    const errors = validateString(args);
+
+    if (!isValidEmail(args.data))
+        errors.push({
+            propName: args.propName,
+            errorMsg: allErrors.INVALID_EMAIL
+        });
+
+    return errors;
 }

@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.validateString = validateString;
+exports.isValidEmail = isValidEmail;
+exports.validateEmail = validateEmail;
 
 var _allErrors = require('./allErrors');
 
@@ -26,5 +28,17 @@ function validateString(args) {
         errorMsg: args.propValidation.maxLengthError || _allErrors2.default.MAX_LENGTH
     }];
     return [];
+}
+function isValidEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+function validateEmail(args) {
+    var errors = validateString(args);
+    if (!isValidEmail(args.data)) errors.push({
+        propName: args.propName,
+        errorMsg: _allErrors2.default.INVALID_EMAIL
+    });
+    return errors;
 }
 //# sourceMappingURL=validate.js.map

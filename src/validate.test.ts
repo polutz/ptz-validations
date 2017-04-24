@@ -1,8 +1,12 @@
-import { contains, emptyArray, equal, notContains } from 'ptz-assert';
-import { allErrors, IStringValidation, validateString } from './index';
+import { contains, emptyArray, equal, notContains, notOk, ok } from 'ptz-assert';
+import {
+    allErrors,
+    IEmailValidation,
+    IStringValidation, isValidEmail, validateEmail, validateString
+} from './index';
 
 describe('validate', () => {
-    describe('validateString', () => {
+    describe('String', () => {
         describe('required', () => {
             describe('null', () => {
                 it('return default error msg when null', () => {
@@ -199,6 +203,117 @@ describe('validate', () => {
 
                 const errors = validateString({ data: null, propName, propValidation });
                 emptyArray(errors);
+            });
+        });
+    });
+
+    describe('Email', () => {
+        describe('isValidEmail', () => {
+            it('Valid Email', () => {
+                ok(isValidEmail('alanmarcell@live.com'));
+            });
+            it('Invalid Email', () => {
+                notOk(isValidEmail('alanmarcelllive.com'));
+            });
+        });
+
+        describe('validateEmail', () => {
+            describe('required', () => {
+                describe('null', () => {
+                    it('return default error msg when null', () => {
+                        const propName = 'email';
+                        const propValidation: IEmailValidation = {
+                            required: true
+                        };
+
+                        const errors = validateEmail({ data: null, propName, propValidation });
+                        equal(errors[0].errorMsg, allErrors.REQUIRED);
+                        equal(errors[0].propName, propName);
+                    });
+
+                    it('return custom error msg when null', () => {
+                        const propName = 'email';
+                        const propValidation: IEmailValidation = {
+                            required: true,
+                            requiredError: 'CUSTOM_ERROR_MSG'
+                        };
+
+                        const errors = validateEmail({ data: null, propName, propValidation });
+                        equal(errors[0].errorMsg, propValidation.requiredError);
+                        equal(errors[0].propName, propName);
+                    });
+                });
+
+                describe('undefined', () => {
+                    it('return default error msg when undefined', () => {
+                        const propName = 'email';
+                        const propValidation: IEmailValidation = {
+                            required: true
+                        };
+
+                        const errors = validateEmail({ data: undefined, propName, propValidation });
+                        equal(errors[0].errorMsg, allErrors.REQUIRED);
+                        equal(errors[0].propName, propName);
+                    });
+
+                    it('return custom error msg when undefined', () => {
+                        const propName = 'email';
+                        const propValidation: IEmailValidation = {
+                            required: true,
+                            requiredError: 'CUSTOM_ERROR_MSG'
+                        };
+
+                        const errors = validateEmail({ data: undefined, propName, propValidation });
+                        equal(errors[0].errorMsg, propValidation.requiredError);
+                        equal(errors[0].propName, propName);
+                    });
+                });
+
+                describe('empty', () => {
+                    it('return default error msg when empty', () => {
+                        const propName = 'email';
+                        const propValidation: IEmailValidation = {
+                            required: true
+                        };
+
+                        const errors = validateEmail({ data: '', propName, propValidation });
+                        equal(errors[0].errorMsg, allErrors.REQUIRED);
+                        equal(errors[0].propName, propName);
+                    });
+
+                    it('return custom error msg when empty', () => {
+                        const propName = 'email';
+                        const propValidation: IEmailValidation = {
+                            required: true,
+                            requiredError: 'CUSTOM_ERROR_MSG'
+                        };
+
+                        const errors = validateEmail({ data: '', propName, propValidation });
+                        equal(errors[0].errorMsg, propValidation.requiredError);
+                        equal(errors[0].propName, propName);
+                    });
+                });
+
+                it('do not return error when not empty', () => {
+                    const propName = 'email';
+                    const propValidation: IEmailValidation = {
+                        required: true
+                    };
+
+                    const errors = validateEmail({ data: 'angeloocana@gmail.com', propName, propValidation });
+                    emptyArray(errors);
+                });
+            });
+
+            describe('return error when invalid email', () => {
+                const propName = 'email';
+                const propValidation: IEmailValidation = {
+                    required: false
+                };
+
+                const errors = validateEmail({ data: 'abcd', propName, propValidation });
+                equal(errors[0].errorMsg, allErrors.INVALID_EMAIL);
+                equal(errors[0].propName, propName);
             });
         });
     });

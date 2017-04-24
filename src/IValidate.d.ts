@@ -33,4 +33,6 @@ export interface IValidateArgs<TData, TPropValidation> {
 
 export type IValidateStringArgs = IValidateArgs<string, IStringValidation>;
 
+export type IValidateEmailArgs = IValidateArgs<string, IEmailValidation>;
+
 export type IValidateString = (args: IValidateStringArgs) => IError[];

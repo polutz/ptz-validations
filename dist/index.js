@@ -4,15 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Email = require('./Email');
-
-Object.defineProperty(exports, 'validateEmail', {
-  enumerable: true,
-  get: function get() {
-    return _Email.validateEmail;
-  }
-});
-
 var _allErrors = require('./allErrors');
 
 Object.defineProperty(exports, 'allErrors', {
@@ -37,5 +28,17 @@ Object.defineProperty(exports, 'validateString', {
   enumerable: true,
   get: function get() {
     return _validate.validateString;
+  }
+});
+Object.defineProperty(exports, 'validateEmail', {
+  enumerable: true,
+  get: function get() {
+    return _validate.validateEmail;
+  }
+});
+Object.defineProperty(exports, 'isValidEmail', {
+  enumerable: true,
+  get: function get() {
+    return _validate.isValidEmail;
   }
 });

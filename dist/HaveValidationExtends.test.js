@@ -1,5 +1,7 @@
 'use strict';
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _index = require('./index');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11,15 +13,31 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var MyTestClass = function (_HaveValidation) {
     _inherits(MyTestClass, _HaveValidation);
 
-    function MyTestClass() {
+    function MyTestClass(args) {
         _classCallCheck(this, MyTestClass);
 
-        var _this = _possibleConstructorReturn(this, (MyTestClass.__proto__ || Object.getPrototypeOf(MyTestClass)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (MyTestClass.__proto__ || Object.getPrototypeOf(MyTestClass)).call(this, args));
 
-        _this.requiredPropTestValidations = {};
+        _this.setName(args.name);
         return _this;
     }
 
+    _createClass(MyTestClass, [{
+        key: 'setName',
+        value: function setName(name) {
+            this.addErrors((0, _index.validateString)({
+                data: name,
+                propName: 'name',
+                propValidation: MyTestClass.nameValidation
+            }));
+            this.name = name;
+        }
+    }]);
+
     return MyTestClass;
 }(_index.HaveValidation);
+
+MyTestClass.nameValidation = {
+    required: true
+};
 //# sourceMappingURL=HaveValidationExtends.test.js.map
