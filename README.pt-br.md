@@ -7,48 +7,40 @@
 [![bitHound Score](https://www.bithound.io/github/gotwarlost/istanbul/badges/score.svg)](https://www.bithound.io/github/polutz/ptz-validations)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-## Translations
+## Traduções
 [pt-br](https://github.com/polutz/ptz-validations/blob/master/README.pt-br.md)
 [en-us](https://github.com/polutz/ptz-validations/blob/master/README.md)
 
-Validate your js objects.
+ptz-validations é um módulo Polutz.
 
 
-## Use
+## Como usar
 
-### Install
+### Instalação
 ```
     npm install --save ptz-validations
 ```
 
-### How to use
-
-#### E-mail Validation
+### Como usar
 ```
-    import { validateEmail } from 'ptz-validations';
-
-    validateEmail('angeloocana@gmail.com'); // Return TRUE
-
-    validateEmail('angeloocana_gmail_com'); // Return FALSE
+    import  from ptz-validations;
 
 ```
 
 
-
-
-## Contribute
+## Contribuir com o projeto
 
 ### NPM Global packages
 ```
     npm install -g ts-node babel-cli
 ```
 
-### Setup
+### Instalação
 ```
     npm install   
 ```
 
-### Test
+### Teste
 ```
     npm test
 ```
