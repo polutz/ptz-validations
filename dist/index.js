@@ -42,3 +42,4 @@ Object.defineProperty(exports, 'isValidEmail', {
     return _validate.isValidEmail;
   }
 });
+//# sourceMappingURL=index.js.map

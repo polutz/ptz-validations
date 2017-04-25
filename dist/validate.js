@@ -42,7 +42,7 @@ function validateString(propValidation) {
     };
 }
 function isValidEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // tslint:disable-line:max-line-length
     return re.test(email);
 }
 function validateEmail(propValidation) {
@@ -64,4 +64,5 @@ function validateEmail(propValidation) {
         propValidation: propValidation
     };
 }
+//# sourceMappingURL=validate.js.map
 //# sourceMappingURL=validate.js.map
