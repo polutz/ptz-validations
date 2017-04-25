@@ -1,31 +1,54 @@
 import allErrors from './allErrors';
 import { IError } from './IError';
-import { IValidateEmailArgs, IValidateStringArgs } from './IValidate';
+import {
+    IEmailValidation,
+    IStringValidation,
+    IValidateContext,
+    IValidateResult
+} from './IValidate';
 
-export function validateString(args: IValidateStringArgs): IError[] {
+export function validateString(propValidation: IStringValidation): IValidateResult<IStringValidation, string> {
+    function validate(context: IValidateContext<string>): IValidateContext<string> {
 
-    if (args.propValidation.required && (args.data == null || args.data.length === 0))
-        return [{
-            propName: args.propName,
-            errorMsg: args.propValidation.requiredError || allErrors.REQUIRED
-        }];
+        if (context.errors == null)
+            context.errors = [];
 
-    if (args.data == null)
-        return [];
+        if (propValidation.required && (context.data == null || context.data.length === 0)) {
+            context.errors.push({
+                propName: context.propName,
+                errorMsg: propValidation.requiredError || allErrors.REQUIRED
+            });
+            return context;
+        }
 
-    if (args.data.length < args.propValidation.minLength)
-        return [{
-            propName: args.propName,
-            errorMsg: args.propValidation.minLengthError || allErrors.MIN_LENGTH
-        }];
+        if (context.data == null)
+            return context;
 
-    if (args.data.length > args.propValidation.maxLength)
-        return [{
-            propName: args.propName,
-            errorMsg: args.propValidation.maxLengthError || allErrors.MAX_LENGTH
-        }];
+        if (context.data.length < propValidation.minLength)
+            context.errors.push({
+                propName: context.propName,
+                errorMsg: propValidation.minLengthError || allErrors.MIN_LENGTH
+            });
 
-    return [];
+        if (context.data.length > propValidation.maxLength)
+            context.errors.push({
+                propName: context.propName,
+                errorMsg: propValidation.maxLengthError || allErrors.MAX_LENGTH
+            });
+
+        if (propValidation.toLowerCase)
+            context.data = context.data.toLowerCase();
+
+        if (propValidation.toUpperCase)
+            context.data = context.data.toUpperCase();
+
+        return context;
+    }
+
+    return {
+        validate,
+        propValidation
+    };
 }
 
 export function isValidEmail(email: string): boolean {
@@ -33,14 +56,27 @@ export function isValidEmail(email: string): boolean {
     return re.test(email);
 }
 
-export function validateEmail(args: IValidateEmailArgs): IError[] {
-    const errors = validateString(args);
+export function validateEmail(propValidation: IEmailValidation): IValidateResult<IEmailValidation, string> {
+    function validate(context: IValidateContext<string>): IValidateContext<string> {
+        const stringValidation: IStringValidation = {
+            required: propValidation.required,
+            requiredError: propValidation.requiredError,
+            toLowerCase: true
+        };
 
-    if (!isValidEmail(args.data))
-        errors.push({
-            propName: args.propName,
-            errorMsg: allErrors.INVALID_EMAIL
-        });
+        context = validateString(stringValidation).validate(context);
 
-    return errors;
+        if (!isValidEmail(context.data))
+            context.errors.push({
+                propName: context.propName,
+                errorMsg: allErrors.INVALID_EMAIL
+            });
+
+        return context;
+    }
+
+    return {
+        validate,
+        propValidation
+    };
 }

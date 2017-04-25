@@ -1,5 +1,6 @@
 import { IError } from './IError';
 import { IHaveValidation, IHaveValidationArgs } from './IHaveValidation';
+import { IValidations } from './IValidate';
 
 export default class HaveValidation implements IHaveValidation {
 
@@ -10,6 +11,20 @@ export default class HaveValidation implements IHaveValidation {
             args = {};
 
         this.addErrors(args.errors);
+    }
+
+    validate(validations: IValidations, args: any): any {
+        Object.keys(validations).forEach(propName => {
+            const context = validations[propName].validate({
+                data: args[propName],
+                propName
+            });
+
+            args[propName] = context.data;
+            this.addErrors(context.errors);
+        });
+
+        return args;
     }
 
     addError(error: IError): void {

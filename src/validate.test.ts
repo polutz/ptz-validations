@@ -15,9 +15,13 @@ describe('validate', () => {
                         required: true
                     };
 
-                    const errors = validateString({ data: null, propName, propValidation });
-                    equal(errors[0].errorMsg, allErrors.REQUIRED);
-                    equal(errors[0].propName, propName);
+                    const context = validateString(propValidation).validate({
+                        data: null,
+                        propName
+                    });
+
+                    equal(context.errors[0].errorMsg, allErrors.REQUIRED);
+                    equal(context.errors[0].propName, propName);
                 });
 
                 it('return custom error msg when null', () => {
@@ -27,9 +31,13 @@ describe('validate', () => {
                         requiredError: 'CUSTOM_ERROR_MSG'
                     };
 
-                    const errors = validateString({ data: null, propName, propValidation });
-                    equal(errors[0].errorMsg, propValidation.requiredError);
-                    equal(errors[0].propName, propName);
+                    const context = validateString(propValidation).validate({
+                        data: null,
+                        propName
+                    });
+
+                    equal(context.errors[0].errorMsg, propValidation.requiredError);
+                    equal(context.errors[0].propName, propName);
                 });
             });
 
@@ -40,9 +48,13 @@ describe('validate', () => {
                         required: true
                     };
 
-                    const errors = validateString({ data: undefined, propName, propValidation });
-                    equal(errors[0].errorMsg, allErrors.REQUIRED);
-                    equal(errors[0].propName, propName);
+                    const context = validateString(propValidation).validate({
+                        data: undefined,
+                        propName
+                    });
+
+                    equal(context.errors[0].errorMsg, allErrors.REQUIRED);
+                    equal(context.errors[0].propName, propName);
                 });
 
                 it('return custom error msg when undefined', () => {
@@ -52,9 +64,13 @@ describe('validate', () => {
                         requiredError: 'CUSTOM_ERROR_MSG'
                     };
 
-                    const errors = validateString({ data: undefined, propName, propValidation });
-                    equal(errors[0].errorMsg, propValidation.requiredError);
-                    equal(errors[0].propName, propName);
+                    const context = validateString(propValidation).validate({
+                        data: undefined,
+                        propName
+                    });
+
+                    equal(context.errors[0].errorMsg, propValidation.requiredError);
+                    equal(context.errors[0].propName, propName);
                 });
             });
 
@@ -65,9 +81,13 @@ describe('validate', () => {
                         required: true
                     };
 
-                    const errors = validateString({ data: '', propName, propValidation });
-                    equal(errors[0].errorMsg, allErrors.REQUIRED);
-                    equal(errors[0].propName, propName);
+                    const context = validateString(propValidation).validate({
+                        data: '',
+                        propName
+                    });
+
+                    equal(context.errors[0].errorMsg, allErrors.REQUIRED);
+                    equal(context.errors[0].propName, propName);
                 });
 
                 it('return custom error msg when empty', () => {
@@ -77,9 +97,13 @@ describe('validate', () => {
                         requiredError: 'CUSTOM_ERROR_MSG'
                     };
 
-                    const errors = validateString({ data: '', propName, propValidation });
-                    equal(errors[0].errorMsg, propValidation.requiredError);
-                    equal(errors[0].propName, propName);
+                    const context = validateString(propValidation).validate({
+                        data: '',
+                        propName
+                    });
+
+                    equal(context.errors[0].errorMsg, propValidation.requiredError);
+                    equal(context.errors[0].propName, propName);
                 });
             });
 
@@ -89,8 +113,12 @@ describe('validate', () => {
                     required: true
                 };
 
-                const errors = validateString({ data: 'angeloocana', propName, propValidation });
-                emptyArray(errors);
+                const context = validateString(propValidation).validate({
+                    data: 'angeloocana',
+                    propName
+                });
+
+                emptyArray(context.errors);
             });
         });
 
@@ -101,9 +129,13 @@ describe('validate', () => {
                     minLength: 3
                 };
 
-                const errors = validateString({ data: 'ab', propName, propValidation });
-                equal(errors[0].errorMsg, allErrors.MIN_LENGTH);
-                equal(errors[0].propName, propName);
+                const context = validateString(propValidation).validate({
+                    data: 'ab',
+                    propName
+                });
+
+                equal(context.errors[0].errorMsg, allErrors.MIN_LENGTH);
+                equal(context.errors[0].propName, propName);
             });
 
             it('return custom minLength error when less than minLength', () => {
@@ -113,9 +145,13 @@ describe('validate', () => {
                     minLengthError: 'CUSTOM_MIN_LENGTH_ERROR'
                 };
 
-                const errors = validateString({ data: 'ab', propName, propValidation });
-                equal(errors[0].errorMsg, propValidation.minLengthError);
-                equal(errors[0].propName, propName);
+                const context = validateString(propValidation).validate({
+                    data: 'ab',
+                    propName
+                });
+
+                equal(context.errors[0].errorMsg, propValidation.minLengthError);
+                equal(context.errors[0].propName, propName);
             });
 
             it('do not return minLength error when equal than minLength', () => {
@@ -124,8 +160,12 @@ describe('validate', () => {
                     minLength: 3
                 };
 
-                const errors = validateString({ data: 'abc', propName, propValidation });
-                emptyArray(errors);
+                const context = validateString(propValidation).validate({
+                    data: 'abc',
+                    propName
+                });
+
+                emptyArray(context.errors);
             });
 
             it('do not return minLength error when grather than minLength', () => {
@@ -134,8 +174,12 @@ describe('validate', () => {
                     minLength: 3
                 };
 
-                const errors = validateString({ data: 'abcde', propName, propValidation });
-                emptyArray(errors);
+                const context = validateString(propValidation).validate({
+                    data: 'abcde',
+                    propName
+                });
+
+                emptyArray(context.errors);
             });
 
             it('do not return minLength error when null and not required', () => {
@@ -145,8 +189,12 @@ describe('validate', () => {
                     minLength: 3
                 };
 
-                const errors = validateString({ data: null, propName, propValidation });
-                emptyArray(errors);
+                const context = validateString(propValidation).validate({
+                    data: null,
+                    propName
+                });
+
+                emptyArray(context.errors);
             });
         });
 
@@ -157,9 +205,13 @@ describe('validate', () => {
                     maxLength: 3
                 };
 
-                const errors = validateString({ data: 'abcd', propName, propValidation });
-                equal(errors[0].errorMsg, allErrors.MAX_LENGTH);
-                equal(errors[0].propName, propName);
+                const context = validateString(propValidation).validate({
+                    data: 'abcd',
+                    propName
+                });
+
+                equal(context.errors[0].errorMsg, allErrors.MAX_LENGTH);
+                equal(context.errors[0].propName, propName);
             });
 
             it('return custom maxLength error when grather than maxLength', () => {
@@ -169,9 +221,13 @@ describe('validate', () => {
                     maxLengthError: 'CUSTOM_MAX_LENGTH_ERROR'
                 };
 
-                const errors = validateString({ data: 'abcd', propName, propValidation });
-                equal(errors[0].errorMsg, propValidation.maxLengthError);
-                equal(errors[0].propName, propName);
+                const context = validateString(propValidation).validate({
+                    data: 'abcd',
+                    propName
+                });
+
+                equal(context.errors[0].errorMsg, propValidation.maxLengthError);
+                equal(context.errors[0].propName, propName);
             });
 
             it('do not return maxLength error when equal than maxLength', () => {
@@ -180,8 +236,12 @@ describe('validate', () => {
                     maxLength: 3
                 };
 
-                const errors = validateString({ data: 'abc', propName, propValidation });
-                emptyArray(errors);
+                const context = validateString(propValidation).validate({
+                    data: 'abc',
+                    propName
+                });
+
+                emptyArray(context.errors);
             });
 
             it('do not return maxLength error when less than maxLength', () => {
@@ -190,8 +250,12 @@ describe('validate', () => {
                     maxLength: 3
                 };
 
-                const errors = validateString({ data: 'ab', propName, propValidation });
-                emptyArray(errors);
+                const context = validateString(propValidation).validate({
+                    data: 'ab',
+                    propName
+                });
+
+                emptyArray(context.errors);
             });
 
             it('do not return maxLength error when null and not required', () => {
@@ -201,8 +265,12 @@ describe('validate', () => {
                     maxLength: 3
                 };
 
-                const errors = validateString({ data: null, propName, propValidation });
-                emptyArray(errors);
+                const context = validateString(propValidation).validate({
+                    data: null,
+                    propName
+                });
+
+                emptyArray(context.errors);
             });
         });
     });
@@ -226,9 +294,13 @@ describe('validate', () => {
                             required: true
                         };
 
-                        const errors = validateEmail({ data: null, propName, propValidation });
-                        equal(errors[0].errorMsg, allErrors.REQUIRED);
-                        equal(errors[0].propName, propName);
+                        const context = validateEmail(propValidation).validate({
+                            data: null,
+                            propName
+                        });
+
+                        equal(context.errors[0].errorMsg, allErrors.REQUIRED);
+                        equal(context.errors[0].propName, propName);
                     });
 
                     it('return custom error msg when null', () => {
@@ -238,9 +310,13 @@ describe('validate', () => {
                             requiredError: 'CUSTOM_ERROR_MSG'
                         };
 
-                        const errors = validateEmail({ data: null, propName, propValidation });
-                        equal(errors[0].errorMsg, propValidation.requiredError);
-                        equal(errors[0].propName, propName);
+                        const context = validateEmail(propValidation).validate({
+                            data: null,
+                            propName
+                        });
+
+                        equal(context.errors[0].errorMsg, propValidation.requiredError);
+                        equal(context.errors[0].propName, propName);
                     });
                 });
 
@@ -251,9 +327,13 @@ describe('validate', () => {
                             required: true
                         };
 
-                        const errors = validateEmail({ data: undefined, propName, propValidation });
-                        equal(errors[0].errorMsg, allErrors.REQUIRED);
-                        equal(errors[0].propName, propName);
+                        const context = validateEmail(propValidation).validate({
+                            data: undefined,
+                            propName
+                        });
+
+                        equal(context.errors[0].errorMsg, allErrors.REQUIRED);
+                        equal(context.errors[0].propName, propName);
                     });
 
                     it('return custom error msg when undefined', () => {
@@ -263,9 +343,13 @@ describe('validate', () => {
                             requiredError: 'CUSTOM_ERROR_MSG'
                         };
 
-                        const errors = validateEmail({ data: undefined, propName, propValidation });
-                        equal(errors[0].errorMsg, propValidation.requiredError);
-                        equal(errors[0].propName, propName);
+                        const context = validateEmail(propValidation).validate({
+                            data: undefined,
+                            propName
+                        });
+
+                        equal(context.errors[0].errorMsg, propValidation.requiredError);
+                        equal(context.errors[0].propName, propName);
                     });
                 });
 
@@ -276,9 +360,13 @@ describe('validate', () => {
                             required: true
                         };
 
-                        const errors = validateEmail({ data: '', propName, propValidation });
-                        equal(errors[0].errorMsg, allErrors.REQUIRED);
-                        equal(errors[0].propName, propName);
+                        const context = validateEmail(propValidation).validate({
+                            data: '',
+                            propName
+                        });
+
+                        equal(context.errors[0].errorMsg, allErrors.REQUIRED);
+                        equal(context.errors[0].propName, propName);
                     });
 
                     it('return custom error msg when empty', () => {
@@ -288,9 +376,13 @@ describe('validate', () => {
                             requiredError: 'CUSTOM_ERROR_MSG'
                         };
 
-                        const errors = validateEmail({ data: '', propName, propValidation });
-                        equal(errors[0].errorMsg, propValidation.requiredError);
-                        equal(errors[0].propName, propName);
+                        const context = validateEmail(propValidation).validate({
+                            data: '',
+                            propName
+                        });
+
+                        equal(context.errors[0].errorMsg, propValidation.requiredError);
+                        equal(context.errors[0].propName, propName);
                     });
                 });
 
@@ -300,8 +392,12 @@ describe('validate', () => {
                         required: true
                     };
 
-                    const errors = validateEmail({ data: 'angeloocana@gmail.com', propName, propValidation });
-                    emptyArray(errors);
+                    const context = validateEmail(propValidation).validate({
+                        data: 'angeloocana@gmail.com',
+                        propName
+                    });
+
+                    emptyArray(context.errors);
                 });
             });
 
@@ -311,9 +407,13 @@ describe('validate', () => {
                     required: false
                 };
 
-                const errors = validateEmail({ data: 'abcd', propName, propValidation });
-                equal(errors[0].errorMsg, allErrors.INVALID_EMAIL);
-                equal(errors[0].propName, propName);
+                const context = validateEmail(propValidation).validate({
+                    data: 'abcd',
+                    propName
+                });
+
+                equal(context.errors[0].errorMsg, allErrors.INVALID_EMAIL);
+                equal(context.errors[0].propName, propName);
             });
         });
     });

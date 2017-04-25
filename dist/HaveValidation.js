@@ -17,6 +17,21 @@ var HaveValidation = function () {
     }
 
     _createClass(HaveValidation, [{
+        key: "validate",
+        value: function validate(validations, args) {
+            var _this = this;
+
+            Object.keys(validations).forEach(function (propName) {
+                var context = validations[propName].validate({
+                    data: args[propName],
+                    propName: propName
+                });
+                args[propName] = context.data;
+                _this.addErrors(context.errors);
+            });
+            return args;
+        }
+    }, {
         key: "addError",
         value: function addError(error) {
             if (error == null) return;
@@ -28,12 +43,12 @@ var HaveValidation = function () {
     }, {
         key: "addErrors",
         value: function addErrors(errors) {
-            var _this = this;
+            var _this2 = this;
 
             if (this.errors == null) this.errors = [];
             if (errors == null) return;
             errors.forEach(function (error) {
-                return _this.addError(error);
+                return _this2.addError(error);
             });
         }
     }, {

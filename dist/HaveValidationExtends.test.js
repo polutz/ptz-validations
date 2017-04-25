@@ -1,6 +1,6 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _ptzAssert = require('ptz-assert');
 
 var _index = require('./index');
 
@@ -10,34 +10,64 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MyTestClass = function (_HaveValidation) {
-    _inherits(MyTestClass, _HaveValidation);
+var User = function (_HaveValidation) {
+    _inherits(User, _HaveValidation);
 
-    function MyTestClass(args) {
-        _classCallCheck(this, MyTestClass);
+    function User(args) {
+        _classCallCheck(this, User);
 
-        var _this = _possibleConstructorReturn(this, (MyTestClass.__proto__ || Object.getPrototypeOf(MyTestClass)).call(this, args));
+        var _this = _possibleConstructorReturn(this, (User.__proto__ || Object.getPrototypeOf(User)).call(this, args));
 
-        _this.setName(args.name);
+        args = _this.validate(User.validations, args);
+        _this.userName = args.userName;
+        _this.email = args.email;
+        _this.displayName = args.displayName;
         return _this;
     }
 
-    _createClass(MyTestClass, [{
-        key: 'setName',
-        value: function setName(name) {
-            this.addErrors((0, _index.validateString)({
-                data: name,
-                propName: 'name',
-                propValidation: MyTestClass.nameValidation
-            }));
-            this.name = name;
-        }
-    }]);
-
-    return MyTestClass;
+    return User;
 }(_index.HaveValidation);
 
-MyTestClass.nameValidation = {
-    required: true
+User.validations = {
+    userName: (0, _index.validateString)({
+        required: true,
+        toLowerCase: true,
+        minLength: 3,
+        maxLength: 50
+    }),
+    email: (0, _index.validateEmail)({
+        required: true
+    }),
+    displayName: (0, _index.validateString)({
+        maxLength: 140,
+        minLength: 2,
+        required: true
+    })
 };
+describe('extends HaveValidation', function () {
+    describe('User class example', function () {
+        it('creates new valid user', function () {
+            var userArgs = {
+                displayName: 'Angelo Ocana',
+                email: 'AngeloOcana@Gmail.Com',
+                userName: 'AngeloOcana'
+            };
+            var user = new User(userArgs);
+            (0, _ptzAssert.equal)(user.displayName, userArgs.displayName);
+            (0, _ptzAssert.equal)(user.email, 'angeloocana@gmail.com');
+            (0, _ptzAssert.equal)(user.userName, 'angeloocana');
+        });
+        it('add error invalid email', function () {
+            var userArgs = {
+                displayName: 'Angelo Ocana',
+                email: 'AngeloOcana_Gmail_Com',
+                userName: 'AngeloOcana'
+            };
+            var user = new User(userArgs);
+            (0, _ptzAssert.containsFind)(user.errors, function (error) {
+                return error.propName === 'email' && error.errorMsg === _index.allErrors.INVALID_EMAIL;
+            });
+        });
+    });
+});
 //# sourceMappingURL=HaveValidationExtends.test.js.map

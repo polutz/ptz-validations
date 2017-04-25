@@ -10,6 +10,8 @@ export interface IStringValidation extends IPropValidation {
     minLengthError?: string;
     maxLength?: number;
     maxLengthError?: string;
+    toLowerCase?: boolean;
+    toUpperCase?: boolean;
 }
 
 export interface INumberValidation extends IPropValidation {
@@ -25,14 +27,17 @@ export type IDateValidation = IPropValidation;
 
 export type IEmailValidation = IPropValidation;
 
-export interface IValidateArgs<TData, TPropValidation> {
+export interface IValidateContext<TData> {
     propName: string;
     data: TData;
-    propValidation: TPropValidation;
+    errors?: IError[];
 }
 
-export type IValidateStringArgs = IValidateArgs<string, IStringValidation>;
+export interface IValidations {
+    [key: string]: IValidateResult<any, any>;
+}
 
-export type IValidateEmailArgs = IValidateArgs<string, IEmailValidation>;
-
-export type IValidateString = (args: IValidateStringArgs) => IError[];
+export interface IValidateResult<TValidation, T> {
+    propValidation: TValidation;
+    validate: (context: IValidateContext<T>) => IValidateContext<T>;
+}

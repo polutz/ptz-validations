@@ -13,9 +13,12 @@ describe('validate', function () {
                     var propValidation = {
                         required: true
                     };
-                    var errors = (0, _index.validateString)({ data: null, propName: propName, propValidation: propValidation });
-                    (0, _ptzAssert.equal)(errors[0].errorMsg, _index.allErrors.REQUIRED);
-                    (0, _ptzAssert.equal)(errors[0].propName, propName);
+                    var context = (0, _index.validateString)(propValidation).validate({
+                        data: null,
+                        propName: propName
+                    });
+                    (0, _ptzAssert.equal)(context.errors[0].errorMsg, _index.allErrors.REQUIRED);
+                    (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                 });
                 it('return custom error msg when null', function () {
                     var propName = 'userName';
@@ -23,9 +26,12 @@ describe('validate', function () {
                         required: true,
                         requiredError: 'CUSTOM_ERROR_MSG'
                     };
-                    var errors = (0, _index.validateString)({ data: null, propName: propName, propValidation: propValidation });
-                    (0, _ptzAssert.equal)(errors[0].errorMsg, propValidation.requiredError);
-                    (0, _ptzAssert.equal)(errors[0].propName, propName);
+                    var context = (0, _index.validateString)(propValidation).validate({
+                        data: null,
+                        propName: propName
+                    });
+                    (0, _ptzAssert.equal)(context.errors[0].errorMsg, propValidation.requiredError);
+                    (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                 });
             });
             describe('undefined', function () {
@@ -34,9 +40,12 @@ describe('validate', function () {
                     var propValidation = {
                         required: true
                     };
-                    var errors = (0, _index.validateString)({ data: undefined, propName: propName, propValidation: propValidation });
-                    (0, _ptzAssert.equal)(errors[0].errorMsg, _index.allErrors.REQUIRED);
-                    (0, _ptzAssert.equal)(errors[0].propName, propName);
+                    var context = (0, _index.validateString)(propValidation).validate({
+                        data: undefined,
+                        propName: propName
+                    });
+                    (0, _ptzAssert.equal)(context.errors[0].errorMsg, _index.allErrors.REQUIRED);
+                    (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                 });
                 it('return custom error msg when undefined', function () {
                     var propName = 'userName';
@@ -44,9 +53,12 @@ describe('validate', function () {
                         required: true,
                         requiredError: 'CUSTOM_ERROR_MSG'
                     };
-                    var errors = (0, _index.validateString)({ data: undefined, propName: propName, propValidation: propValidation });
-                    (0, _ptzAssert.equal)(errors[0].errorMsg, propValidation.requiredError);
-                    (0, _ptzAssert.equal)(errors[0].propName, propName);
+                    var context = (0, _index.validateString)(propValidation).validate({
+                        data: undefined,
+                        propName: propName
+                    });
+                    (0, _ptzAssert.equal)(context.errors[0].errorMsg, propValidation.requiredError);
+                    (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                 });
             });
             describe('empty', function () {
@@ -55,9 +67,12 @@ describe('validate', function () {
                     var propValidation = {
                         required: true
                     };
-                    var errors = (0, _index.validateString)({ data: '', propName: propName, propValidation: propValidation });
-                    (0, _ptzAssert.equal)(errors[0].errorMsg, _index.allErrors.REQUIRED);
-                    (0, _ptzAssert.equal)(errors[0].propName, propName);
+                    var context = (0, _index.validateString)(propValidation).validate({
+                        data: '',
+                        propName: propName
+                    });
+                    (0, _ptzAssert.equal)(context.errors[0].errorMsg, _index.allErrors.REQUIRED);
+                    (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                 });
                 it('return custom error msg when empty', function () {
                     var propName = 'userName';
@@ -65,9 +80,12 @@ describe('validate', function () {
                         required: true,
                         requiredError: 'CUSTOM_ERROR_MSG'
                     };
-                    var errors = (0, _index.validateString)({ data: '', propName: propName, propValidation: propValidation });
-                    (0, _ptzAssert.equal)(errors[0].errorMsg, propValidation.requiredError);
-                    (0, _ptzAssert.equal)(errors[0].propName, propName);
+                    var context = (0, _index.validateString)(propValidation).validate({
+                        data: '',
+                        propName: propName
+                    });
+                    (0, _ptzAssert.equal)(context.errors[0].errorMsg, propValidation.requiredError);
+                    (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                 });
             });
             it('do not return error when not empty', function () {
@@ -75,8 +93,11 @@ describe('validate', function () {
                 var propValidation = {
                     required: true
                 };
-                var errors = (0, _index.validateString)({ data: 'angeloocana', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.emptyArray)(errors);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: 'angeloocana',
+                    propName: propName
+                });
+                (0, _ptzAssert.emptyArray)(context.errors);
             });
         });
         describe('minLength', function () {
@@ -85,9 +106,12 @@ describe('validate', function () {
                 var propValidation = {
                     minLength: 3
                 };
-                var errors = (0, _index.validateString)({ data: 'ab', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.equal)(errors[0].errorMsg, _index.allErrors.MIN_LENGTH);
-                (0, _ptzAssert.equal)(errors[0].propName, propName);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: 'ab',
+                    propName: propName
+                });
+                (0, _ptzAssert.equal)(context.errors[0].errorMsg, _index.allErrors.MIN_LENGTH);
+                (0, _ptzAssert.equal)(context.errors[0].propName, propName);
             });
             it('return custom minLength error when less than minLength', function () {
                 var propName = 'userName';
@@ -95,25 +119,34 @@ describe('validate', function () {
                     minLength: 3,
                     minLengthError: 'CUSTOM_MIN_LENGTH_ERROR'
                 };
-                var errors = (0, _index.validateString)({ data: 'ab', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.equal)(errors[0].errorMsg, propValidation.minLengthError);
-                (0, _ptzAssert.equal)(errors[0].propName, propName);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: 'ab',
+                    propName: propName
+                });
+                (0, _ptzAssert.equal)(context.errors[0].errorMsg, propValidation.minLengthError);
+                (0, _ptzAssert.equal)(context.errors[0].propName, propName);
             });
             it('do not return minLength error when equal than minLength', function () {
                 var propName = 'userName';
                 var propValidation = {
                     minLength: 3
                 };
-                var errors = (0, _index.validateString)({ data: 'abc', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.emptyArray)(errors);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: 'abc',
+                    propName: propName
+                });
+                (0, _ptzAssert.emptyArray)(context.errors);
             });
             it('do not return minLength error when grather than minLength', function () {
                 var propName = 'userName';
                 var propValidation = {
                     minLength: 3
                 };
-                var errors = (0, _index.validateString)({ data: 'abcde', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.emptyArray)(errors);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: 'abcde',
+                    propName: propName
+                });
+                (0, _ptzAssert.emptyArray)(context.errors);
             });
             it('do not return minLength error when null and not required', function () {
                 var propName = 'userName';
@@ -121,8 +154,11 @@ describe('validate', function () {
                     required: false,
                     minLength: 3
                 };
-                var errors = (0, _index.validateString)({ data: null, propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.emptyArray)(errors);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: null,
+                    propName: propName
+                });
+                (0, _ptzAssert.emptyArray)(context.errors);
             });
         });
         describe('maxLength', function () {
@@ -131,9 +167,12 @@ describe('validate', function () {
                 var propValidation = {
                     maxLength: 3
                 };
-                var errors = (0, _index.validateString)({ data: 'abcd', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.equal)(errors[0].errorMsg, _index.allErrors.MAX_LENGTH);
-                (0, _ptzAssert.equal)(errors[0].propName, propName);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: 'abcd',
+                    propName: propName
+                });
+                (0, _ptzAssert.equal)(context.errors[0].errorMsg, _index.allErrors.MAX_LENGTH);
+                (0, _ptzAssert.equal)(context.errors[0].propName, propName);
             });
             it('return custom maxLength error when grather than maxLength', function () {
                 var propName = 'userName';
@@ -141,25 +180,34 @@ describe('validate', function () {
                     maxLength: 3,
                     maxLengthError: 'CUSTOM_MAX_LENGTH_ERROR'
                 };
-                var errors = (0, _index.validateString)({ data: 'abcd', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.equal)(errors[0].errorMsg, propValidation.maxLengthError);
-                (0, _ptzAssert.equal)(errors[0].propName, propName);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: 'abcd',
+                    propName: propName
+                });
+                (0, _ptzAssert.equal)(context.errors[0].errorMsg, propValidation.maxLengthError);
+                (0, _ptzAssert.equal)(context.errors[0].propName, propName);
             });
             it('do not return maxLength error when equal than maxLength', function () {
                 var propName = 'userName';
                 var propValidation = {
                     maxLength: 3
                 };
-                var errors = (0, _index.validateString)({ data: 'abc', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.emptyArray)(errors);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: 'abc',
+                    propName: propName
+                });
+                (0, _ptzAssert.emptyArray)(context.errors);
             });
             it('do not return maxLength error when less than maxLength', function () {
                 var propName = 'userName';
                 var propValidation = {
                     maxLength: 3
                 };
-                var errors = (0, _index.validateString)({ data: 'ab', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.emptyArray)(errors);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: 'ab',
+                    propName: propName
+                });
+                (0, _ptzAssert.emptyArray)(context.errors);
             });
             it('do not return maxLength error when null and not required', function () {
                 var propName = 'userName';
@@ -167,8 +215,11 @@ describe('validate', function () {
                     required: false,
                     maxLength: 3
                 };
-                var errors = (0, _index.validateString)({ data: null, propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.emptyArray)(errors);
+                var context = (0, _index.validateString)(propValidation).validate({
+                    data: null,
+                    propName: propName
+                });
+                (0, _ptzAssert.emptyArray)(context.errors);
             });
         });
     });
@@ -189,9 +240,12 @@ describe('validate', function () {
                         var propValidation = {
                             required: true
                         };
-                        var errors = (0, _index.validateEmail)({ data: null, propName: propName, propValidation: propValidation });
-                        (0, _ptzAssert.equal)(errors[0].errorMsg, _index.allErrors.REQUIRED);
-                        (0, _ptzAssert.equal)(errors[0].propName, propName);
+                        var context = (0, _index.validateEmail)(propValidation).validate({
+                            data: null,
+                            propName: propName
+                        });
+                        (0, _ptzAssert.equal)(context.errors[0].errorMsg, _index.allErrors.REQUIRED);
+                        (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                     });
                     it('return custom error msg when null', function () {
                         var propName = 'email';
@@ -199,9 +253,12 @@ describe('validate', function () {
                             required: true,
                             requiredError: 'CUSTOM_ERROR_MSG'
                         };
-                        var errors = (0, _index.validateEmail)({ data: null, propName: propName, propValidation: propValidation });
-                        (0, _ptzAssert.equal)(errors[0].errorMsg, propValidation.requiredError);
-                        (0, _ptzAssert.equal)(errors[0].propName, propName);
+                        var context = (0, _index.validateEmail)(propValidation).validate({
+                            data: null,
+                            propName: propName
+                        });
+                        (0, _ptzAssert.equal)(context.errors[0].errorMsg, propValidation.requiredError);
+                        (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                     });
                 });
                 describe('undefined', function () {
@@ -210,9 +267,12 @@ describe('validate', function () {
                         var propValidation = {
                             required: true
                         };
-                        var errors = (0, _index.validateEmail)({ data: undefined, propName: propName, propValidation: propValidation });
-                        (0, _ptzAssert.equal)(errors[0].errorMsg, _index.allErrors.REQUIRED);
-                        (0, _ptzAssert.equal)(errors[0].propName, propName);
+                        var context = (0, _index.validateEmail)(propValidation).validate({
+                            data: undefined,
+                            propName: propName
+                        });
+                        (0, _ptzAssert.equal)(context.errors[0].errorMsg, _index.allErrors.REQUIRED);
+                        (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                     });
                     it('return custom error msg when undefined', function () {
                         var propName = 'email';
@@ -220,9 +280,12 @@ describe('validate', function () {
                             required: true,
                             requiredError: 'CUSTOM_ERROR_MSG'
                         };
-                        var errors = (0, _index.validateEmail)({ data: undefined, propName: propName, propValidation: propValidation });
-                        (0, _ptzAssert.equal)(errors[0].errorMsg, propValidation.requiredError);
-                        (0, _ptzAssert.equal)(errors[0].propName, propName);
+                        var context = (0, _index.validateEmail)(propValidation).validate({
+                            data: undefined,
+                            propName: propName
+                        });
+                        (0, _ptzAssert.equal)(context.errors[0].errorMsg, propValidation.requiredError);
+                        (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                     });
                 });
                 describe('empty', function () {
@@ -231,9 +294,12 @@ describe('validate', function () {
                         var propValidation = {
                             required: true
                         };
-                        var errors = (0, _index.validateEmail)({ data: '', propName: propName, propValidation: propValidation });
-                        (0, _ptzAssert.equal)(errors[0].errorMsg, _index.allErrors.REQUIRED);
-                        (0, _ptzAssert.equal)(errors[0].propName, propName);
+                        var context = (0, _index.validateEmail)(propValidation).validate({
+                            data: '',
+                            propName: propName
+                        });
+                        (0, _ptzAssert.equal)(context.errors[0].errorMsg, _index.allErrors.REQUIRED);
+                        (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                     });
                     it('return custom error msg when empty', function () {
                         var propName = 'email';
@@ -241,9 +307,12 @@ describe('validate', function () {
                             required: true,
                             requiredError: 'CUSTOM_ERROR_MSG'
                         };
-                        var errors = (0, _index.validateEmail)({ data: '', propName: propName, propValidation: propValidation });
-                        (0, _ptzAssert.equal)(errors[0].errorMsg, propValidation.requiredError);
-                        (0, _ptzAssert.equal)(errors[0].propName, propName);
+                        var context = (0, _index.validateEmail)(propValidation).validate({
+                            data: '',
+                            propName: propName
+                        });
+                        (0, _ptzAssert.equal)(context.errors[0].errorMsg, propValidation.requiredError);
+                        (0, _ptzAssert.equal)(context.errors[0].propName, propName);
                     });
                 });
                 it('do not return error when not empty', function () {
@@ -251,8 +320,11 @@ describe('validate', function () {
                     var propValidation = {
                         required: true
                     };
-                    var errors = (0, _index.validateEmail)({ data: 'angeloocana@gmail.com', propName: propName, propValidation: propValidation });
-                    (0, _ptzAssert.emptyArray)(errors);
+                    var context = (0, _index.validateEmail)(propValidation).validate({
+                        data: 'angeloocana@gmail.com',
+                        propName: propName
+                    });
+                    (0, _ptzAssert.emptyArray)(context.errors);
                 });
             });
             describe('return error when invalid email', function () {
@@ -260,9 +332,12 @@ describe('validate', function () {
                 var propValidation = {
                     required: false
                 };
-                var errors = (0, _index.validateEmail)({ data: 'abcd', propName: propName, propValidation: propValidation });
-                (0, _ptzAssert.equal)(errors[0].errorMsg, _index.allErrors.INVALID_EMAIL);
-                (0, _ptzAssert.equal)(errors[0].propName, propName);
+                var context = (0, _index.validateEmail)(propValidation).validate({
+                    data: 'abcd',
+                    propName: propName
+                });
+                (0, _ptzAssert.equal)(context.errors[0].errorMsg, _index.allErrors.INVALID_EMAIL);
+                (0, _ptzAssert.equal)(context.errors[0].propName, propName);
             });
         });
     });

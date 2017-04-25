@@ -8,5 +8,6 @@ export {
     IPropValidation, IArrayValidation,
     IDateValidation, IEmailValidation,
     INumberValidation, IStringValidation,
-    IValidateArgs, IValidateString, IValidateStringArgs
+    IValidateContext, IValidations,
+    IValidateResult
 } from './IValidate';
