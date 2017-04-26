@@ -1,6 +1,10 @@
 ## master
 
 
+## 1.2.1 (April 26, 2017)
+
+* Fix unused variables.
+
 ## 1.2.0 (April 25, 2017)
 
 * Update validateEmail and validateString usage:
