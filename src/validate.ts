@@ -1,5 +1,4 @@
 import allErrors from './allErrors';
-import { IError } from './IError';
 import {
     IEmailValidation,
     IStringValidation,

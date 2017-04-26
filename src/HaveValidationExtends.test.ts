@@ -1,7 +1,7 @@
 import { containsFind, equal } from 'ptz-assert';
 import {
     allErrors, HaveValidation,
-    IError, IStringValidation, IValidations, validateEmail, validateString
+    IError, IValidations, validateEmail, validateString
 } from './index';
 
 interface IUserArgs {

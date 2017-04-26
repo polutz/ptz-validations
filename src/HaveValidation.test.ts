@@ -1,4 +1,4 @@
-import { contains, containsNTimes, emptyArray, equal, notEmptyString, notOk, ok, throws } from 'ptz-assert';
+import { contains, containsNTimes, emptyArray, notOk, ok } from 'ptz-assert';
 import { HaveValidation, IError } from './index';
 
 describe('HaveValidation', () => {

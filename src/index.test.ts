@@ -1,8 +1,6 @@
 import { ok } from 'ptz-assert';
 import {
     HaveValidation,
-    IHaveValidation,
-    IHaveValidationArgs,
     validateEmail
 } from './index';
 
