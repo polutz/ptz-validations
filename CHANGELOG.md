@@ -1,6 +1,17 @@
 ## master
 
 
+## 1.2.2 (April 28, 2017)
+
+* Transpiling Typescript to esnext.
+* Add tests for:
+    - ValidateString
+        - toLowerCase
+        - toUpperCase
+    - HaveValidation
+        - new with null
+        - addError with null
+
 ## 1.2.1 (April 26, 2017)
 
 * Fix unused variables.
