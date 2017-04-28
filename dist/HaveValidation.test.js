@@ -6,6 +6,14 @@ var _index = require('./index');
 
 describe('HaveValidation', function () {
     describe('addError', function () {
+        it('do not throw error when args is null', function () {
+            var error = {
+                errorMsg: 'ERROR_'
+            };
+            var entity = new _index.HaveValidation(null);
+            entity.addError(error);
+            (0, _ptzAssert.contains)(entity.errors, error);
+        });
         it('do not throw error when args.errors is null', function () {
             var error = {
                 errorMsg: 'ERROR_'
@@ -27,6 +35,11 @@ describe('HaveValidation', function () {
             var entity = new _index.HaveValidation({ errors: [error] });
             entity.addError(error);
             (0, _ptzAssert.containsNTimes)(entity.errors, error, 1);
+        });
+        it('do not add null error', function () {
+            var entity = new _index.HaveValidation({});
+            entity.addError(null);
+            (0, _ptzAssert.emptyArray)(entity.errors);
         });
     });
     describe('addErrors', function () {

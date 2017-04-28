@@ -2,6 +2,14 @@ import { contains, containsNTimes, emptyArray, notOk, ok } from 'ptz-assert';
 import { HaveValidation } from './index';
 describe('HaveValidation', () => {
     describe('addError', () => {
+        it('do not throw error when args is null', () => {
+            const error = {
+                errorMsg: 'ERROR_'
+            };
+            const entity = new HaveValidation(null);
+            entity.addError(error);
+            contains(entity.errors, error);
+        });
         it('do not throw error when args.errors is null', () => {
             const error = {
                 errorMsg: 'ERROR_'
@@ -23,6 +31,11 @@ describe('HaveValidation', () => {
             const entity = new HaveValidation({ errors: [error] });
             entity.addError(error);
             containsNTimes(entity.errors, error, 1);
+        });
+        it('do not add null error', () => {
+            const entity = new HaveValidation({});
+            entity.addError(null);
+            emptyArray(entity.errors);
         });
     });
     describe('addErrors', () => {

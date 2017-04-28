@@ -273,6 +273,36 @@ describe('validate', () => {
                 emptyArray(context.errors);
             });
         });
+
+        it('toLowerCase', () => {
+            const propName = 'userName';
+            const propValidation: IStringValidation = {
+                toLowerCase: true
+            };
+
+            const context = validateString(propValidation).validate({
+                data: 'AbCd',
+                propName
+            });
+
+            emptyArray(context.errors);
+            equal(context.data, 'abcd');
+        });
+
+        it('toUpperCase', () => {
+            const propName = 'userName';
+            const propValidation: IStringValidation = {
+                toUpperCase: true
+            };
+
+            const context = validateString(propValidation).validate({
+                data: 'AbCd',
+                propName
+            });
+
+            emptyArray(context.errors);
+            equal(context.data, 'ABCD');
+        });
     });
 
     describe('Email', () => {

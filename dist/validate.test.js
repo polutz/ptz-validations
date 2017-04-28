@@ -222,6 +222,30 @@ describe('validate', function () {
                 (0, _ptzAssert.emptyArray)(context.errors);
             });
         });
+        it('toLowerCase', function () {
+            var propName = 'userName';
+            var propValidation = {
+                toLowerCase: true
+            };
+            var context = (0, _index.validateString)(propValidation).validate({
+                data: 'AbCd',
+                propName: propName
+            });
+            (0, _ptzAssert.emptyArray)(context.errors);
+            (0, _ptzAssert.equal)(context.data, 'abcd');
+        });
+        it('toUpperCase', function () {
+            var propName = 'userName';
+            var propValidation = {
+                toUpperCase: true
+            };
+            var context = (0, _index.validateString)(propValidation).validate({
+                data: 'AbCd',
+                propName: propName
+            });
+            (0, _ptzAssert.emptyArray)(context.errors);
+            (0, _ptzAssert.equal)(context.data, 'ABCD');
+        });
     });
     describe('Email', function () {
         describe('isValidEmail', function () {
