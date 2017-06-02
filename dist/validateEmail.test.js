@@ -113,6 +113,16 @@ describe('validateEmail', function () {
             var error = { propName: propName, errorMsg: V.allErrors.INVALID_EMAIL };
             assert.ok(V.containsError(error, validatedObj.errors));
         });
+        it('do NOT add error when valid email', function () {
+            var propName = 'email';
+            var propValidation = {
+                required: false
+            };
+            var objToValidate = { email: 'angeloocana@gmail.com' };
+            var validatedObj = V.validateEmail(propValidation, propName, objToValidate);
+            var error = { propName: propName, errorMsg: V.allErrors.INVALID_EMAIL };
+            assert.notOk(V.containsError(error, validatedObj.errors));
+        });
     });
 });
 //# sourceMappingURL=validateEmail.test.js.map

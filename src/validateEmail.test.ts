@@ -164,5 +164,21 @@ describe('validateEmail', () => {
 
             assert.ok(V.containsError(error, validatedObj.errors));
         });
+
+        it('do NOT add error when valid email', () => {
+            const propName = 'email';
+
+            const propValidation: V.IEmailValidation = {
+                required: false
+            };
+
+            const objToValidate = { email: 'angeloocana@gmail.com' };
+
+            const validatedObj = V.validateEmail(propValidation, propName, objToValidate);
+
+            const error = { propName, errorMsg: V.allErrors.INVALID_EMAIL };
+
+            assert.notOk(V.containsError(error, validatedObj.errors));
+        });
     });
 });
