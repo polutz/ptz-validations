@@ -247,7 +247,7 @@ describe('validateString', () => {
 
             const validatedObj = V.validateString(propValidation, propName, objToValidate);
 
-            const error = { propName, errorMsg: V.allErrors.MIN_LENGTH };
+            const error = { propName, errorMsg: V.allErrors.MAX_LENGTH };
 
             assert.ok(V.containsError(error, validatedObj.errors));
         });

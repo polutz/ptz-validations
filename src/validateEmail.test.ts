@@ -6,7 +6,7 @@ describe('validateEmail', () => {
         it('Valid Email', () => {
             assert.ok(V.isValidEmail('angeloocana@gmail.com'));
         });
-        it.only('Invalid Email', () => {
+        it('Invalid Email', () => {
             assert.notOk(V.isValidEmail('angeloocana_gmail.com'));
         });
     });

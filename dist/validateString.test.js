@@ -156,7 +156,7 @@ describe('validateString', function () {
             };
             var objToValidate = _defineProperty({}, propName, 'angeloocana');
             var validatedObj = V.validateString(propValidation, propName, objToValidate);
-            var error = { propName: propName, errorMsg: V.allErrors.MIN_LENGTH };
+            var error = { propName: propName, errorMsg: V.allErrors.MAX_LENGTH };
             assert.ok(V.containsError(error, validatedObj.errors));
         });
         it('add custom maxLength error when grater than maxLength', function () {

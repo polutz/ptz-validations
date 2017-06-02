@@ -34,6 +34,7 @@ var validateString = exports.validateString = _ramda2.default.curry(function (op
     if (propValue.length < opts.minLength) return addError(opts.minLengthError || _allErrors2.default.MIN_LENGTH);
     if (opts.toLowerCase) return _ramda2.default.assoc(propName, propValue.toLowerCase(), obj);
     if (opts.toUpperCase) return _ramda2.default.assoc(propName, propValue.toUpperCase(), obj);
+    return obj;
 });
 //# sourceMappingURL=validateString.js.map
 //# sourceMappingURL=validateString.js.map

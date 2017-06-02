@@ -20,5 +20,6 @@ export const validateString = R.curry((opts, propName, obj) => {
         return R.assoc(propName, propValue.toLowerCase(), obj);
     if (opts.toUpperCase)
         return R.assoc(propName, propValue.toUpperCase(), obj);
+    return obj;
 });
 //# sourceMappingURL=validateString.js.map

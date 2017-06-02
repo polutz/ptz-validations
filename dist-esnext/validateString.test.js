@@ -170,7 +170,7 @@ describe('validateString', () => {
                 [propName]: 'angeloocana'
             };
             const validatedObj = V.validateString(propValidation, propName, objToValidate);
-            const error = { propName, errorMsg: V.allErrors.MIN_LENGTH };
+            const error = { propName, errorMsg: V.allErrors.MAX_LENGTH };
             assert.ok(V.containsError(error, validatedObj.errors));
         });
         it('add custom maxLength error when grater than maxLength', () => {

@@ -40,4 +40,6 @@ export const validateString = R.curry((opts: IStringValidation, propName: string
 
     if (opts.toUpperCase)
         return R.assoc(propName, propValue.toUpperCase(), obj);
+
+    return obj;
 });

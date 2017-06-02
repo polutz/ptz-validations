@@ -17,7 +17,7 @@ describe('validateEmail', function () {
         it('Valid Email', function () {
             assert.ok(V.isValidEmail('angeloocana@gmail.com'));
         });
-        it.only('Invalid Email', function () {
+        it('Invalid Email', function () {
             assert.notOk(V.isValidEmail('angeloocana_gmail.com'));
         });
     });
