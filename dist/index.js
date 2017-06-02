@@ -6,40 +6,73 @@ Object.defineProperty(exports, "__esModule", {
 
 var _allErrors = require('./allErrors');
 
-Object.defineProperty(exports, 'allErrors', {
-  enumerable: true,
-  get: function get() {
-    return _allErrors.allErrors;
-  }
+Object.keys(_allErrors).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _allErrors[key];
+    }
+  });
 });
 
-var _HaveValidation = require('./HaveValidation');
+var _error = require('./error');
 
-Object.defineProperty(exports, 'HaveValidation', {
-  enumerable: true,
-  get: function get() {
-    return _HaveValidation.HaveValidation;
-  }
+Object.keys(_error).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _error[key];
+    }
+  });
+});
+
+var _isValid = require('./isValid');
+
+Object.keys(_isValid).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _isValid[key];
+    }
+  });
 });
 
 var _validate = require('./validate');
 
-Object.defineProperty(exports, 'validateString', {
-  enumerable: true,
-  get: function get() {
-    return _validate.validateString;
-  }
+Object.keys(_validate).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _validate[key];
+    }
+  });
 });
-Object.defineProperty(exports, 'validateEmail', {
-  enumerable: true,
-  get: function get() {
-    return _validate.validateEmail;
-  }
+
+var _validateEmail = require('./validateEmail');
+
+Object.keys(_validateEmail).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _validateEmail[key];
+    }
+  });
 });
-Object.defineProperty(exports, 'isValidEmail', {
-  enumerable: true,
-  get: function get() {
-    return _validate.isValidEmail;
-  }
+
+var _validateString = require('./validateString');
+
+Object.keys(_validateString).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _validateString[key];
+    }
+  });
 });
 //# sourceMappingURL=index.js.map

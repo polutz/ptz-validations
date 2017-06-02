@@ -1,13 +1,8 @@
-export { allErrors } from './allErrors';
-export { HaveValidation } from './HaveValidation';
-export { IHaveValidation, IHaveValidationArgs } from './IHaveValidation';
-export { IError } from './IError';
-export { validateString, validateEmail, isValidEmail } from './validate';
-
-export {
-    IPropValidation, IArrayValidation,
-    IDateValidation, IEmailValidation,
-    INumberValidation, IStringValidation,
-    IValidateContext, IValidations,
-    IValidateResult
-} from './IValidate';
+export * from './allErrors';
+export * from './error';
+export * from './IHaveValidation';
+export * from './IPropValidation';
+export * from './isValid';
+export * from './validate';
+export * from './validateEmail';
+export * from './validateString';
