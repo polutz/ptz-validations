@@ -1,6 +1,10 @@
 ## master
 
 
+## 2.0.0 (June 3, 2017)
+
+* Complete rewrite to Functional Programming.
+
 ## 1.2.2 (April 28, 2017)
 
 * Transpiling Typescript to esnext.
