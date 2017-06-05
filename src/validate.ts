@@ -20,14 +20,8 @@ export interface IValidations {
  * Validate obj.
  */
 export const validate = R.curry((validations: IValidations, obj: IHaveValidation & any) => {
-    console.log('validations \n', validations);
-    console.log('obj \n', obj);
-
     return R.keys(validations).reduce((accObj: IHaveValidation, propName) => {
-        console.log('accObj \n', accObj);
-        console.log('propName \n', propName);
-        const newObj = validations[propName](propName, accObj);
-        console.log('newObj \n', newObj);
-        return newObj;
+        const validateProp = validations[propName];
+        return validateProp(propName, accObj);
     }, obj);
 });
