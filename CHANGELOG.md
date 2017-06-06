@@ -1,6 +1,11 @@
 ## master
 
 
+## 2.0.1 (June 6, 2017)
+
+* Add types to addError().
+* Add Generic types to validate().
+
 ## 2.0.0 (June 3, 2017)
 
 * Complete rewrite to Functional Programming.
