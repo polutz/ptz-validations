@@ -23,12 +23,20 @@ export const containsError = (error, errors) => R.any(sameError(error), errors |
 /**
  * Type to be use in params on validate functions.
  */
-export type IAddError = (errorMsg: string) => IHaveValidation;
+type IAddError1 = (errorMsg: string) => IHaveValidation;
+
+type IAddError2 = <T>(obj: IHaveValidation & T, propName: string, errorMsg: string) => IHaveValidation & T;
+
+type IAddError3 = <T>(obj: IHaveValidation & T) => (propName: string, errorMsg: string) => IHaveValidation & T;
+
+type IAddError4 = <T>(obj: IHaveValidation & T, propName: string) => (errorMsg: string) => IHaveValidation & T;
+
+export type IAddError = IAddError1 & IAddError2 & IAddError3 & IAddError4;
 
 /**
  * Add error to obj.errors
  */
-export const addError = R.curry((obj: IHaveValidation, propName: string, errorMsg: string): IHaveValidation => {
+export const addError: IAddError = R.curry((obj: IHaveValidation, propName: string, errorMsg: string) => {
     const error = { propName, errorMsg };
 
     if (R.isNil(obj))
