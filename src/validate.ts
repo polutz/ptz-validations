@@ -16,10 +16,12 @@ export interface IValidations {
     [key: string]: IValidateProp;
 }
 
+type IValidate = <T>(validations: IValidations) => (obj: IHaveValidation & any) => T & IHaveValidation;
+
 /**
  * Validate obj.
  */
-export const validate = R.curry((validations: IValidations, obj: IHaveValidation & any) => {
+export const validate: IValidate = R.curry((validations: IValidations, obj: IHaveValidation & any) => {
     return R.keys(validations).reduce((accObj: IHaveValidation, propName) => {
         const validateProp = validations[propName];
         return validateProp(propName, accObj);
