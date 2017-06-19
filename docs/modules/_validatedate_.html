@@ -91,7 +91,7 @@
 					<div class="tsd-signature tsd-kind-icon">validate<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_validatedate_.idatevalidation.html" class="tsd-signature-type">IDateValidation</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((opts: IDateValidation, propName: string, obj: IHaveValidation) &#x3D;&gt; {const propValue &#x3D; R.prop&lt;Date&gt;(propName, obj);const addError &#x3D; addErrorBase(obj, propName);if (P.isNilOrEmpty(propValue))return opts.required? addError(opts.requiredError || allErrors.REQUIRED): obj;if (propValue &gt; opts.max)return addError(opts.maxError || allErrors.MAX_LENGTH);if (propValue &lt; opts.min)return addError(opts.minError || allErrors.MIN_LENGTH);return obj;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/696302a/src/validateDate.ts#L21">validateDate.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/70eb908/src/validateDate.ts#L21">validateDate.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

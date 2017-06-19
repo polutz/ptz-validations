@@ -79,74 +79,74 @@
 </code></pre>
 				<h3 id="how-to-use">How to use</h3>
 				<p>Example test of how to create a function to validate user:</p>
-				<pre><code class="lang-js">    <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> assert <span class="hljs-keyword">from</span> <span class="hljs-string">'ptz-assert'</span>;
+				<pre><code class="lang-typescript">    <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> assert <span class="hljs-keyword">from</span> <span class="hljs-string">'ptz-assert'</span>;
     <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> V <span class="hljs-keyword">from</span> <span class="hljs-string">'./index'</span>;
 
-    describe(<span class="hljs-string">'ptz-validations'</span>, () =&gt; {
-        it(<span class="hljs-string">'createUser example'</span>, () =&gt; {
+    describe(<span class="hljs-string">'ptz-validations'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        it(<span class="hljs-string">'createUser example'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
 
             <span class="hljs-comment">// Optional interface for Typescript projects</span>
-            interface IUser {
-                <span class="hljs-attr">id</span>: string;
-                userName: string;
-                password: string;
-                email: string;
-                weight?: number;
+            <span class="hljs-keyword">interface</span> IUser {
+                id: <span class="hljs-built_in">string</span>;
+                userName: <span class="hljs-built_in">string</span>;
+                password: <span class="hljs-built_in">string</span>;
+                email: <span class="hljs-built_in">string</span>;
+                weight?: <span class="hljs-built_in">number</span>;
                 birthday?: <span class="hljs-built_in">Date</span>;
             }
 
             <span class="hljs-keyword">const</span> validateUser = V.validate&lt;IUser&gt;({
-                <span class="hljs-attr">id</span>: V.generateId,
-                <span class="hljs-attr">displayName</span>: V.validateString({
-                    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
-                    <span class="hljs-attr">minLength</span>: <span class="hljs-number">2</span>,
-                    <span class="hljs-attr">maxLength</span>: <span class="hljs-number">100</span>
+                id: V.generateId,
+                displayName: V.validateString({
+                    required: <span class="hljs-literal">true</span>,
+                    minLength: <span class="hljs-number">2</span>,
+                    maxLength: <span class="hljs-number">100</span>
                 }),
-                <span class="hljs-attr">userName</span>: V.validateString({
-                    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
-                    <span class="hljs-attr">minLength</span>: <span class="hljs-number">2</span>,
-                    <span class="hljs-attr">maxLength</span>: <span class="hljs-number">40</span>,
-                    <span class="hljs-attr">toLowerCase</span>: <span class="hljs-literal">true</span>
+                userName: V.validateString({
+                    required: <span class="hljs-literal">true</span>,
+                    minLength: <span class="hljs-number">2</span>,
+                    maxLength: <span class="hljs-number">40</span>,
+                    toLowerCase: <span class="hljs-literal">true</span>
                 }),
-                <span class="hljs-attr">password</span>: V.validateString({
-                    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
-                    <span class="hljs-attr">minLength</span>: <span class="hljs-number">6</span>,
-                    <span class="hljs-attr">maxLength</span>: <span class="hljs-number">40</span>
+                password: V.validateString({
+                    required: <span class="hljs-literal">true</span>,
+                    minLength: <span class="hljs-number">6</span>,
+                    maxLength: <span class="hljs-number">40</span>
                 }),
-                <span class="hljs-attr">email</span>: V.validateEmail({
-                    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
+                email: V.validateEmail({
+                    required: <span class="hljs-literal">true</span>
                 }),
-                <span class="hljs-attr">weight</span>: V.validateNumber({
-                    <span class="hljs-attr">min</span>: <span class="hljs-number">1</span>,
-                    <span class="hljs-attr">max</span>: <span class="hljs-number">1000</span>
+                weight: V.validateNumber({
+                    min: <span class="hljs-number">1</span>,
+                    max: <span class="hljs-number">1000</span>
                 }),
-                <span class="hljs-attr">birthday</span>: V.validateDate({
-                    <span class="hljs-attr">min</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'1800-01-01'</span>),
-                    <span class="hljs-attr">max</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()
+                birthday: V.validateDate({
+                    min: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'1800-01-01'</span>),
+                    max: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()
                 })
             });
 
             <span class="hljs-keyword">const</span> user = validateUser({
-                <span class="hljs-attr">userName</span>: <span class="hljs-string">'angeloocana'</span>,
-                <span class="hljs-attr">password</span>: <span class="hljs-string">'abcd'</span>,
-                <span class="hljs-attr">email</span>: <span class="hljs-string">'angeloocana@gmail.com'</span>,
-                <span class="hljs-attr">weight</span>: <span class="hljs-number">90</span>,
-                <span class="hljs-attr">birthday</span>: <span class="hljs-string">'1992-06-28'</span>
+                userName: <span class="hljs-string">'angeloocana'</span>,
+                password: <span class="hljs-string">'abcd'</span>,
+                email: <span class="hljs-string">'angeloocana@gmail.com'</span>,
+                weight: <span class="hljs-number">90</span>,
+                birthday: <span class="hljs-string">'1992-06-28'</span>
             });
 
             <span class="hljs-keyword">const</span> expectedUser = {
-                <span class="hljs-attr">id</span>: <span class="hljs-string">'hfk397d'</span>,
-                <span class="hljs-attr">userName</span>: <span class="hljs-string">'angeloocana'</span>,
-                <span class="hljs-attr">password</span>: <span class="hljs-string">'abcd'</span>,
-                <span class="hljs-attr">email</span>: <span class="hljs-string">'angeloocana@gmail.com'</span>,
-                <span class="hljs-attr">weight</span>: <span class="hljs-number">90</span>,
-                <span class="hljs-attr">birthday</span>: <span class="hljs-string">'1992-06-28'</span>,
-                <span class="hljs-attr">errors</span>: [{
-                    <span class="hljs-attr">propName</span>: <span class="hljs-string">'displayName'</span>,
-                    <span class="hljs-attr">errorMsg</span>: <span class="hljs-string">'ERROR_REQUIRED'</span>
+                id: <span class="hljs-string">'hfk397d'</span>,
+                userName: <span class="hljs-string">'angeloocana'</span>,
+                password: <span class="hljs-string">'abcd'</span>,
+                email: <span class="hljs-string">'angeloocana@gmail.com'</span>,
+                weight: <span class="hljs-number">90</span>,
+                birthday: <span class="hljs-string">'1992-06-28'</span>,
+                errors: [{
+                    propName: <span class="hljs-string">'displayName'</span>,
+                    errorMsg: <span class="hljs-string">'ERROR_REQUIRED'</span>
                 }, {
-                    <span class="hljs-attr">propName</span>: <span class="hljs-string">'password'</span>,
-                    <span class="hljs-attr">errorMsg</span>: <span class="hljs-string">'ERROR_MIN_LENGTH'</span>
+                    propName: <span class="hljs-string">'password'</span>,
+                    errorMsg: <span class="hljs-string">'ERROR_MIN_LENGTH'</span>
                 }]
             };
 
