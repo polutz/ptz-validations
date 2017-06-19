@@ -75,4 +75,16 @@ Object.keys(_validateString).forEach(function (key) {
     }
   });
 });
+
+var _validatePrice = require('./validatePrice');
+
+Object.keys(_validatePrice).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _validatePrice[key];
+    }
+  });
+});
 //# sourceMappingURL=index.js.map
