@@ -48,9 +48,11 @@
     "opn": "^4.0.2"
   },
   "dependencies": {
-    "ptz-log": "^1.0.0",
     "@types/ramda": "0.0.10",
+    "@types/shortid": "0.0.29",
     "ptz-fp": "^1.0.0",
-    "ramda": "^0.24.1"
+    "ptz-log": "^1.0.0",
+    "ramda": "^0.24.1",
+    "shortid": "^2.2.8"
   }
 }

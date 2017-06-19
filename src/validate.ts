@@ -23,7 +23,9 @@ type IValidate = <T>(validations: IValidations) => (obj: IHaveValidation & any) 
  */
 export const validate: IValidate = R.curry((validations: IValidations, obj: IHaveValidation & any) => {
     return R.keys(validations).reduce((accObj: IHaveValidation, propName) => {
+
         const validateProp = validations[propName];
         return validateProp(propName, accObj);
+
     }, obj);
 });

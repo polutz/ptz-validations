@@ -40,6 +40,18 @@ Object.keys(_isValid).forEach(function (key) {
   });
 });
 
+var _generateId = require('./generateId');
+
+Object.keys(_generateId).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _generateId[key];
+    }
+  });
+});
+
 var _validate = require('./validate');
 
 Object.keys(_validate).forEach(function (key) {
@@ -52,6 +64,18 @@ Object.keys(_validate).forEach(function (key) {
   });
 });
 
+var _validateDate = require('./validateDate');
+
+Object.keys(_validateDate).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _validateDate[key];
+    }
+  });
+});
+
 var _validateEmail = require('./validateEmail');
 
 Object.keys(_validateEmail).forEach(function (key) {
@@ -60,6 +84,18 @@ Object.keys(_validateEmail).forEach(function (key) {
     enumerable: true,
     get: function get() {
       return _validateEmail[key];
+    }
+  });
+});
+
+var _validateNumber = require('./validateNumber');
+
+Object.keys(_validateNumber).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _validateNumber[key];
     }
   });
 });
