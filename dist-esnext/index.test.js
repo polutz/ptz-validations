@@ -1,7 +1,7 @@
 import * as assert from 'ptz-assert';
 import * as V from './index';
 describe('ptz-validations', () => {
-    it.only('createUser example', () => {
+    it('createUser example', () => {
         const validateUser = V.validate({
             id: V.generateId,
             displayName: V.validateString({

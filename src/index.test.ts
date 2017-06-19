@@ -2,7 +2,7 @@ import * as assert from 'ptz-assert';
 import * as V from './index';
 
 describe('ptz-validations', () => {
-    it.only('createUser example', () => {
+    it('createUser example', () => {
 
         // Optional interface for Typescript projects
         interface IUser {
