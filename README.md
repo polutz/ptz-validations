@@ -23,7 +23,7 @@ Validate your js objects.
 
 ### How to use
 Example test of how to create a function to validate user:
-```js
+```typescript
     import * as assert from 'ptz-assert';
     import * as V from './index';
 
