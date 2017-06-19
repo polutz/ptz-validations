@@ -91,7 +91,7 @@
 					<div class="tsd-signature tsd-kind-icon">validate<wbr>Price<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_validateprice_.ipricevalidation.html" class="tsd-signature-type">IPriceValidation</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((opts: IPriceValidation, propName: string, obj: IHaveValidation) &#x3D;&gt; {const propValue &#x3D; R.prop&lt;string&gt;(propName, obj);const addError &#x3D; addErrorBase(obj, propName);if (P.isNilOrEmpty(propValue))return opts.required? addError(opts.requiredError || allErrors.REQUIRED): obj;if (!opts.canBeZero &amp;&amp; parseInt(propValue, 10) &#x3D;&#x3D;&#x3D; 0)return addError(opts.cannotBeZeroError || allErrors.CANNOT_BE_ZERO);if (!opts.canBeNegative &amp;&amp; parseInt(propValue, 10) &lt; 0)return addError(opts.cannotBeNegativeError || allErrors.CANNOT_BE_NEGATIVE);return obj;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in validatePrice.ts:21</li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/696302a/src/validatePrice.ts#L21">validatePrice.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -121,6 +121,9 @@
 						<a href="_error_.html">"error"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_generateid_.html">"generate<wbr>Id"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -130,7 +133,13 @@
 						<a href="_validate_.html">"validate"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_validatedate_.html">"validate<wbr>Date"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_validateemail_.html">"validate<wbr>Email"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_validatenumber_.html">"validate<wbr>Number"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="_validateprice_.html">"validate<wbr>Price"</a>

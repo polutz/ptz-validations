@@ -92,7 +92,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Valid<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;R.test(/^(([^&lt;&gt;()\[\]\\.,;:\s@&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/82aa0f4/src/validateEmail.ts#L21">validateEmail.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/696302a/src/validateEmail.ts#L21">validateEmail.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -128,7 +128,7 @@
 					<div class="tsd-signature tsd-kind-icon">validate<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_validateemail_.iemailvalidation.html" class="tsd-signature-type">IEmailValidation</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((opts: IEmailValidation, propName: string, obj: IHaveValidation) &#x3D;&gt; {const stringOpts: IStringValidation &#x3D; {required: opts.required,requiredError: opts.requiredError,toLowerCase: true};obj &#x3D; validateString(stringOpts, propName, obj);const propValue &#x3D; R.prop&lt;string&gt;(propName, obj);return isValidEmail(propValue)? obj: addError(obj, propName, opts.invalidEmailError || allErrors.INVALID_EMAIL);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/82aa0f4/src/validateEmail.ts#L26">validateEmail.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/696302a/src/validateEmail.ts#L26">validateEmail.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -158,6 +158,9 @@
 						<a href="_error_.html">"error"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_generateid_.html">"generate<wbr>Id"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -166,8 +169,14 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_validate_.html">"validate"</a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_validatedate_.html">"validate<wbr>Date"</a>
+					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="_validateemail_.html">"validate<wbr>Email"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_validatenumber_.html">"validate<wbr>Number"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_validateprice_.html">"validate<wbr>Price"</a>

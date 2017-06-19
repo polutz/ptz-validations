@@ -75,21 +75,100 @@
 				<p>Validate your js objects.</p>
 				<h2 id="use">Use</h2>
 				<h3 id="install">Install</h3>
-				<pre><code>    npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save ptz-validations</span>
-</code></pre><h3 id="how-to-use">How to use</h3>
-				<h4 id="e-mail-validation">E-mail Validation</h4>
-				<pre><code>    import { validateEmail } from <span class="hljs-symbol">'ptz</span>-validations';
+				<pre><code class="lang-bash">    npm install --save ptz-validations
+</code></pre>
+				<h3 id="how-to-use">How to use</h3>
+				<p>Example test of how to create a function to validate user:</p>
+				<pre><code class="lang-js">    <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> assert <span class="hljs-keyword">from</span> <span class="hljs-string">'ptz-assert'</span>;
+    <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> V <span class="hljs-keyword">from</span> <span class="hljs-string">'./index'</span>;
 
-    validateEmail(<span class="hljs-symbol">'angeloocana</span>@gmail.com'); // <span class="hljs-keyword">Return</span> <span class="hljs-literal">TRUE</span>
+    describe(<span class="hljs-string">'ptz-validations'</span>, () =&gt; {
+        it(<span class="hljs-string">'createUser example'</span>, () =&gt; {
 
-    validateEmail(<span class="hljs-symbol">'angeloocana_gmail_com</span>'); // <span class="hljs-keyword">Return</span> <span class="hljs-literal">FALSE</span>
-</code></pre><h2 id="contribute">Contribute</h2>
+            <span class="hljs-comment">// Optional interface for Typescript projects</span>
+            interface IUser {
+                <span class="hljs-attr">id</span>: string;
+                userName: string;
+                password: string;
+                email: string;
+                weight?: number;
+                birthday?: <span class="hljs-built_in">Date</span>;
+            }
+
+            <span class="hljs-keyword">const</span> validateUser = V.validate&lt;IUser&gt;({
+                <span class="hljs-attr">id</span>: V.generateId,
+                <span class="hljs-attr">displayName</span>: V.validateString({
+                    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">minLength</span>: <span class="hljs-number">2</span>,
+                    <span class="hljs-attr">maxLength</span>: <span class="hljs-number">100</span>
+                }),
+                <span class="hljs-attr">userName</span>: V.validateString({
+                    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">minLength</span>: <span class="hljs-number">2</span>,
+                    <span class="hljs-attr">maxLength</span>: <span class="hljs-number">40</span>,
+                    <span class="hljs-attr">toLowerCase</span>: <span class="hljs-literal">true</span>
+                }),
+                <span class="hljs-attr">password</span>: V.validateString({
+                    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">minLength</span>: <span class="hljs-number">6</span>,
+                    <span class="hljs-attr">maxLength</span>: <span class="hljs-number">40</span>
+                }),
+                <span class="hljs-attr">email</span>: V.validateEmail({
+                    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
+                }),
+                <span class="hljs-attr">weight</span>: V.validateNumber({
+                    <span class="hljs-attr">min</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">max</span>: <span class="hljs-number">1000</span>
+                }),
+                <span class="hljs-attr">birthday</span>: V.validateDate({
+                    <span class="hljs-attr">min</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'1800-01-01'</span>),
+                    <span class="hljs-attr">max</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()
+                })
+            });
+
+            <span class="hljs-keyword">const</span> user = validateUser({
+                <span class="hljs-attr">userName</span>: <span class="hljs-string">'angeloocana'</span>,
+                <span class="hljs-attr">password</span>: <span class="hljs-string">'abcd'</span>,
+                <span class="hljs-attr">email</span>: <span class="hljs-string">'angeloocana@gmail.com'</span>,
+                <span class="hljs-attr">weight</span>: <span class="hljs-number">90</span>,
+                <span class="hljs-attr">birthday</span>: <span class="hljs-string">'1992-06-28'</span>
+            });
+
+            <span class="hljs-keyword">const</span> expectedUser = {
+                <span class="hljs-attr">id</span>: <span class="hljs-string">'hfk397d'</span>,
+                <span class="hljs-attr">userName</span>: <span class="hljs-string">'angeloocana'</span>,
+                <span class="hljs-attr">password</span>: <span class="hljs-string">'abcd'</span>,
+                <span class="hljs-attr">email</span>: <span class="hljs-string">'angeloocana@gmail.com'</span>,
+                <span class="hljs-attr">weight</span>: <span class="hljs-number">90</span>,
+                <span class="hljs-attr">birthday</span>: <span class="hljs-string">'1992-06-28'</span>,
+                <span class="hljs-attr">errors</span>: [{
+                    <span class="hljs-attr">propName</span>: <span class="hljs-string">'displayName'</span>,
+                    <span class="hljs-attr">errorMsg</span>: <span class="hljs-string">'ERROR_REQUIRED'</span>
+                }, {
+                    <span class="hljs-attr">propName</span>: <span class="hljs-string">'password'</span>,
+                    <span class="hljs-attr">errorMsg</span>: <span class="hljs-string">'ERROR_MIN_LENGTH'</span>
+                }]
+            };
+
+            assert.ok(user.id, <span class="hljs-string">'generate id'</span>);
+            assert.equal(user.userName, expectedUser.userName, <span class="hljs-string">'set userName'</span>);
+            assert.equal(user.password, expectedUser.password, <span class="hljs-string">'set password'</span>);
+            assert.equal(user.email, expectedUser.email, <span class="hljs-string">'set email'</span>);
+            assert.equal(user.weight, expectedUser.weight, <span class="hljs-string">'set weight'</span>);
+            assert.equal(user.birthday, expectedUser.birthday, <span class="hljs-string">'set birthday'</span>);
+            assert.deepEqual(user.errors, expectedUser.errors, <span class="hljs-string">'add errors'</span>);
+        });
+    });
+</code></pre>
+				<h2 id="contribute">Contribute</h2>
 				<h3 id="npm-global-packages">NPM Global packages</h3>
-				<pre><code>    npm install -g ts-<span class="hljs-keyword">node</span> <span class="hljs-title">babel-cli</span>
-</code></pre><h3 id="setup">Setup</h3>
-				<pre><code>    npm <span class="hljs-keyword">install</span>
-</code></pre><h3 id="test">Test</h3>
-				<pre><code>    npm <span class="hljs-built_in">test</span>
+				<pre><code class="lang-bash">    npm install -g ts-node babel-cli
+</code></pre>
+				<h3 id="setup">Setup</h3>
+				<pre><code class="lang-bash">    npm install
+</code></pre>
+				<h3 id="test">Test</h3>
+				<pre><code class="lang-bash">    npm <span class="hljs-built_in">test</span>
 </code></pre>
 			</div>
 		</div>
@@ -112,6 +191,9 @@
 						<a href="modules/_error_.html">"error"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_generateid_.html">"generate<wbr>Id"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -121,7 +203,13 @@
 						<a href="modules/_validate_.html">"validate"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_validatedate_.html">"validate<wbr>Date"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_validateemail_.html">"validate<wbr>Email"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_validatenumber_.html">"validate<wbr>Number"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_validateprice_.html">"validate<wbr>Price"</a>
