@@ -80,6 +80,12 @@
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_validatenumber_.html#validatenumber" class="tsd-kind-icon">validate<wbr>Number</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_validatenumber_.html#isvalidnumber" class="tsd-kind-icon">is<wbr>Valid<wbr>Number</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -88,10 +94,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="validatenumber" class="tsd-anchor"></a>
 					<h3>validate<wbr>Number</h3>
-					<div class="tsd-signature tsd-kind-icon">validate<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_validatenumber_.inumbervalidation.html" class="tsd-signature-type">INumberValidation</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((opts: INumberValidation, propName: string, obj: IHaveValidation) &#x3D;&gt; {const propValue &#x3D; R.prop&lt;number&gt;(propName, obj);const addError &#x3D; addErrorBase(obj, propName);if (P.isNilOrEmpty(propValue))return opts.required? addError(opts.requiredError || allErrors.REQUIRED): obj;if (propValue &gt; opts.max)return addError(opts.maxError || allErrors.MAX_LENGTH);if (propValue &lt; opts.min)return addError(opts.minError || allErrors.MIN_LENGTH);return obj;})</span></div>
+					<div class="tsd-signature tsd-kind-icon">validate<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_validatenumber_.inumbervalidation.html" class="tsd-signature-type">INumberValidation</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((opts: INumberValidation, propName: string, obj: IHaveValidation) &#x3D;&gt; {const propValue &#x3D; R.prop&lt;number&gt;(propName, obj);const addError &#x3D; addErrorBase(obj, propName);if (P.isNilOrEmpty(propValue))return opts.required? addError(opts.requiredError || allErrors.REQUIRED): obj;if (propValue &gt; opts.max)return addError(opts.maxError || allErrors.MAX_LENGTH);if (propValue &lt; opts.min)return addError(opts.minError || allErrors.MIN_LENGTH);return isValidNumber(propValue)? obj: addError(opts.invalidNumberError || allErrors.INVALID_NUMBER_ERROR);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/70eb908/src/validateNumber.ts#L21">validateNumber.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/validateNumber.ts#L27">validateNumber.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -99,6 +105,37 @@
 							<p>Validate Number</p>
 						</div>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="isvalidnumber" class="tsd-anchor"></a>
+					<h3>is<wbr>Valid<wbr>Number</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Valid<wbr>Number<span class="tsd-signature-symbol">(</span>propValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/validateNumber.ts#L22">validateNumber.ts:22</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if an number is valid.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>propValue: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -156,6 +193,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
 						<a href="_validatenumber_.html#validatenumber" class="tsd-kind-icon">validate<wbr>Number</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_validatenumber_.html#isvalidnumber" class="tsd-kind-icon">is<wbr>Valid<wbr>Number</a>
 					</li>
 				</ul>
 			</nav>
