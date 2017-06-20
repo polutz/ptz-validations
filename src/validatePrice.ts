@@ -4,6 +4,7 @@ import allErrors from './allErrors';
 import { addError as addErrorBase } from './error';
 import { IHaveValidation } from './IHaveValidation';
 import { IPropValidation } from './IPropValidation';
+import { isValidNumber } from './validateNumber';
 
 /**
  * Options to validate a price.
@@ -13,6 +14,7 @@ export interface IPriceValidation extends IPropValidation {
     canBeZero?: boolean;
     cannotBeZeroError?: string;
     cannotBeNegativeError?: string;
+    invalidNumberError?: string;
 }
 
 /**
@@ -33,5 +35,7 @@ export const validatePrice = R.curry((opts: IPriceValidation, propName: string, 
     if (!opts.canBeNegative && parseInt(propValue, 10) < 0)
         return addError(opts.cannotBeNegativeError || allErrors.CANNOT_BE_NEGATIVE);
 
-    return obj;
+    return isValidNumber(propValue)
+        ? obj
+        : addError(opts.invalidNumberError || allErrors.INVALID_NUMBER_ERROR);
 });
