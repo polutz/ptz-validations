@@ -1,6 +1,6 @@
 {
   "name": "ptz-validations",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Validate your js objects.",
   "main": "dist/index.js",
   "typings": "src/index.ts",

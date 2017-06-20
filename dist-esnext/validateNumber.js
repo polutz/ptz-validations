@@ -3,6 +3,10 @@ import R from 'ramda';
 import allErrors from './allErrors';
 import { addError as addErrorBase } from './error';
 /**
+ * Checks if an number is valid.
+ */
+export const isValidNumber = (propValue) => (typeof (propValue) === 'number');
+/**
  * Validate Number
  */
 export const validateNumber = R.curry((opts, propName, obj) => {
@@ -16,6 +20,8 @@ export const validateNumber = R.curry((opts, propName, obj) => {
         return addError(opts.maxError || allErrors.MAX_LENGTH);
     if (propValue < opts.min)
         return addError(opts.minError || allErrors.MIN_LENGTH);
-    return obj;
+    return isValidNumber(propValue)
+        ? obj
+        : addError(opts.invalidNumberError || allErrors.INVALID_NUMBER_ERROR);
 });
 //# sourceMappingURL=validateNumber.js.map

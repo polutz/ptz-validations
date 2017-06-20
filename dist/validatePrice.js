@@ -19,6 +19,8 @@ var _allErrors2 = _interopRequireDefault(_allErrors);
 
 var _error = require('./error');
 
+var _validateNumber = require('./validateNumber');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -32,7 +34,7 @@ var validatePrice = exports.validatePrice = _ramda2.default.curry(function (opts
     if (P.isNilOrEmpty(propValue)) return opts.required ? addError(opts.requiredError || _allErrors2.default.REQUIRED) : obj;
     if (!opts.canBeZero && parseInt(propValue, 10) === 0) return addError(opts.cannotBeZeroError || _allErrors2.default.CANNOT_BE_ZERO);
     if (!opts.canBeNegative && parseInt(propValue, 10) < 0) return addError(opts.cannotBeNegativeError || _allErrors2.default.CANNOT_BE_NEGATIVE);
-    return obj;
+    return (0, _validateNumber.isValidNumber)(propValue) ? obj : addError(opts.invalidNumberError || _allErrors2.default.INVALID_NUMBER_ERROR);
 });
 //# sourceMappingURL=validatePrice.js.map
 //# sourceMappingURL=validatePrice.js.map

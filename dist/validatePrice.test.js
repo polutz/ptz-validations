@@ -13,6 +13,29 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 describe('validatePrice', function () {
+    describe('invalidNumber', function () {
+        it('add default invalidNumber error when is not a number', function () {
+            var propName = 'price';
+            var propValidation = {
+                required: true
+            };
+            var objToValidate = _defineProperty({}, propName, 'notanumber');
+            var validatedObj = V.validatePrice(propValidation, propName, objToValidate);
+            var error = { propName: propName, errorMsg: V.allErrors.INVALID_NUMBER_ERROR };
+            assert.ok(V.containsError(error, validatedObj.errors));
+        });
+        it('add custom invalidNumber error msg when is not a number', function () {
+            var propName = 'price';
+            var propValidation = {
+                required: true,
+                requiredError: 'CUSTOM_ERROR_MSG'
+            };
+            var objToValidate = _defineProperty({}, propName, null);
+            var error = { propName: propName, errorMsg: propValidation.requiredError };
+            var validatedObj = V.validatePrice(propValidation, propName, objToValidate);
+            assert.ok(V.containsError(error, validatedObj.errors));
+        });
+    });
     describe('required', function () {
         describe('null', function () {
             it('add default error msg when null', function () {

@@ -13,6 +13,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 describe('validateNumber', function () {
+    describe('isValidNumber', function () {
+        it('Valid Number', function () {
+            assert.ok(V.isValidNumber(10));
+        });
+        it('Invalid Number', function () {
+            assert.notOk(V.isValidNumber('10'));
+        });
+    });
     describe('required', function () {
         describe('null', function () {
             it('add default error msg when null', function () {
@@ -178,6 +186,37 @@ describe('validateNumber', function () {
             var error = { propName: propName, errorMsg: V.allErrors.MAX_LENGTH };
             assert.notOk(V.containsError(error, validatedObj.errors));
         });
+    });
+    it('add default error when invalid number', function () {
+        var propName = 'age';
+        var propValidation = {
+            required: false
+        };
+        var objToValidate = { age: '10' };
+        var validatedObj = V.validateNumber(propValidation, propName, objToValidate);
+        var error = { propName: propName, errorMsg: V.allErrors.INVALID_NUMBER_ERROR };
+        assert.ok(V.containsError(error, validatedObj.errors));
+    });
+    it('add custom error when invalid number', function () {
+        var propName = 'age';
+        var propValidation = {
+            required: false,
+            invalidNumberError: 'CUSTOM_INVALID_NUMBER_ERROR'
+        };
+        var objToValidate = { age: '10' };
+        var validatedObj = V.validateNumber(propValidation, propName, objToValidate);
+        var error = { propName: propName, errorMsg: propValidation.invalidNumberError };
+        assert.ok(V.containsError(error, validatedObj.errors));
+    });
+    it('do NOT add error when valid number', function () {
+        var propName = 'age';
+        var propValidation = {
+            required: false
+        };
+        var objToValidate = { age: 25 };
+        var validatedObj = V.validateNumber(propValidation, propName, objToValidate);
+        var error = { propName: propName, errorMsg: V.allErrors.INVALID_NUMBER_ERROR };
+        assert.notOk(V.containsError(error, validatedObj.errors));
     });
 });
 //# sourceMappingURL=validateNumber.test.js.map

@@ -1,6 +1,33 @@
 import * as assert from 'ptz-assert';
 import * as V from './index';
 describe('validatePrice', () => {
+    describe('invalidNumber', () => {
+        it('add default invalidNumber error when is not a number', () => {
+            const propName = 'price';
+            const propValidation = {
+                required: true
+            };
+            const objToValidate = {
+                [propName]: 'notanumber'
+            };
+            const validatedObj = V.validatePrice(propValidation, propName, objToValidate);
+            const error = { propName, errorMsg: V.allErrors.INVALID_NUMBER_ERROR };
+            assert.ok(V.containsError(error, validatedObj.errors));
+        });
+        it('add custom invalidNumber error msg when is not a number', () => {
+            const propName = 'price';
+            const propValidation = {
+                required: true,
+                requiredError: 'CUSTOM_ERROR_MSG'
+            };
+            const objToValidate = {
+                [propName]: null
+            };
+            const error = { propName, errorMsg: propValidation.requiredError };
+            const validatedObj = V.validatePrice(propValidation, propName, objToValidate);
+            assert.ok(V.containsError(error, validatedObj.errors));
+        });
+    });
     describe('required', () => {
         describe('null', () => {
             it('add default error msg when null', () => {

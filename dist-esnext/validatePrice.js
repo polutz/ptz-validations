@@ -2,6 +2,7 @@ import * as P from 'ptz-fp';
 import R from 'ramda';
 import allErrors from './allErrors';
 import { addError as addErrorBase } from './error';
+import { isValidNumber } from './validateNumber';
 /**
  * Validate Price
  */
@@ -16,6 +17,8 @@ export const validatePrice = R.curry((opts, propName, obj) => {
         return addError(opts.cannotBeZeroError || allErrors.CANNOT_BE_ZERO);
     if (!opts.canBeNegative && parseInt(propValue, 10) < 0)
         return addError(opts.cannotBeNegativeError || allErrors.CANNOT_BE_NEGATIVE);
-    return obj;
+    return isValidNumber(propValue)
+        ? obj
+        : addError(opts.invalidNumberError || allErrors.INVALID_NUMBER_ERROR);
 });
 //# sourceMappingURL=validatePrice.js.map

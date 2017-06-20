@@ -1,5 +1,10 @@
 ## master
 
+## 2.0.3 (June 19, 2017)
+
+* Add isValidNumber.
+* Add number validation to validatePrice
+
 ## 2.0.2 (June 19, 2017)
 
 * Add validatePrice.
