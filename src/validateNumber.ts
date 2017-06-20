@@ -10,10 +10,16 @@ import { IPropValidation } from './IPropValidation';
  */
 export interface INumberValidation extends IPropValidation {
     min?: number;
+    invalidNumberError?: string;
     minError?: string;
     max?: number;
     maxError?: string;
 }
+
+/**
+ * Checks if an number is valid.
+ */
+export const isValidNumber = (propValue: any) => (typeof (propValue) === 'number');
 
 /**
  * Validate Number
@@ -33,5 +39,7 @@ export const validateNumber = R.curry((opts: INumberValidation, propName: string
     if (propValue < opts.min)
         return addError(opts.minError || allErrors.MIN_LENGTH);
 
-    return obj;
+    return isValidNumber(propValue)
+        ? obj
+        : addError(opts.invalidNumberError || allErrors.INVALID_NUMBER_ERROR);
 });

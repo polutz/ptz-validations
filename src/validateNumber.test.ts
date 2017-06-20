@@ -2,6 +2,14 @@ import * as assert from 'ptz-assert';
 import * as V from './index';
 
 describe('validateNumber', () => {
+    describe('isValidNumber', () => {
+        it('Valid Number', () => {
+            assert.ok(V.isValidNumber(10));
+        });
+        it('Invalid Number', () => {
+            assert.notOk(V.isValidNumber('10'));
+        });
+    });
     describe('required', () => {
         describe('null', () => {
             it('add default error msg when null', () => {
@@ -286,5 +294,54 @@ describe('validateNumber', () => {
 
             assert.notOk(V.containsError(error, validatedObj.errors));
         });
+    });
+
+    it('add default error when invalid number', () => {
+        const propName = 'age';
+
+        const propValidation: V.INumberValidation = {
+            required: false
+        };
+
+        const objToValidate = { age: '10' };
+
+        const validatedObj = V.validateNumber(propValidation, propName, objToValidate);
+
+        const error = { propName, errorMsg: V.allErrors.INVALID_NUMBER_ERROR };
+
+        assert.ok(V.containsError(error, validatedObj.errors));
+    });
+
+    it('add custom error when invalid number', () => {
+        const propName = 'age';
+
+        const propValidation: V.INumberValidation = {
+            required: false,
+            invalidNumberError: 'CUSTOM_INVALID_NUMBER_ERROR'
+        };
+
+        const objToValidate = { age: '10' };
+
+        const validatedObj = V.validateNumber(propValidation, propName, objToValidate);
+
+        const error = { propName, errorMsg: propValidation.invalidNumberError };
+
+        assert.ok(V.containsError(error, validatedObj.errors));
+    });
+
+    it('do NOT add error when valid number', () => {
+        const propName = 'age';
+
+        const propValidation: V.INumberValidation = {
+            required: false
+        };
+
+        const objToValidate = { age: 25 };
+
+        const validatedObj = V.validateNumber(propValidation, propName, objToValidate);
+
+        const error = { propName, errorMsg: V.allErrors.INVALID_NUMBER_ERROR };
+
+        assert.notOk(V.containsError(error, validatedObj.errors));
     });
 });
