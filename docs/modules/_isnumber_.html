@@ -86,7 +86,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction2</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;isNumberWithError(allErrors.INVALID_NUMBER_ERROR)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/isNumber.ts#L28">isNumber.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/57fc646/src/isNumber.ts#L28">isNumber.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -101,7 +101,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Number<wbr>With<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((errorMsg: string, propName: string, obj: IHaveValidation) &#x3D;&gt; {const propValue &#x3D; R.prop(propName, obj);if (R.isNil(propValue) || typeof propValue &#x3D;&#x3D;&#x3D; &#x27;number&#x27;)return obj;if (typeof propValue !&#x3D;&#x3D; &#x27;string&#x27;)return addError(obj, propName, errorMsg);const numPropValue &#x3D; parseFloat(propValue);return isNaN(numPropValue)? addError(obj, propName, errorMsg): R.assoc(propName, numPropValue, obj);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/isNumber.ts#L9">isNumber.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/57fc646/src/isNumber.ts#L9">isNumber.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

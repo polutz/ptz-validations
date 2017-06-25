@@ -87,7 +87,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction2</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;isEmailWithError(allErrors.INVALID_EMAIL)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/isEmail.ts#L36">isEmail.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/57fc646/src/isEmail.ts#L36">isEmail.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -107,7 +107,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Email<wbr>With<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((errorMsg: string, propName: string, obj: IHaveValidation) &#x3D;&gt; {obj &#x3D; isStringWithError(errorMsg, propName, obj);obj &#x3D; toLowerCase(propName, obj);const propValue &#x3D; R.prop&lt;string&gt;(propName, obj);return isValidEmail(propValue)? obj: addError(obj, propName, errorMsg);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/isEmail.ts#L19">isEmail.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/57fc646/src/isEmail.ts#L19">isEmail.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -127,7 +127,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Valid<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;R.test(/^(([^&lt;&gt;()\[\]\\.,;:\s@&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/isEmail.ts#L11">isEmail.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/57fc646/src/isEmail.ts#L11">isEmail.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
