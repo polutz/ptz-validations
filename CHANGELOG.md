@@ -1,5 +1,20 @@
 ## master
 
+## 3.0.0 (June .., 2017)
+
+* Change validate from prop Function to prop Array of Functions.
+* Add:
+    - max
+    - min
+    - isString
+    - isDate
+    - isNumber
+    - toLowerCase
+    - toUpperCase
+    - isEmail
+* Remove:
+    - validatePrice
+
 ## 2.0.3 (June 19, 2017)
 
 * Add isValidNumber.
