@@ -14,11 +14,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 it('toLowerCase', function () {
     var propName = 'userName';
-    var propValidation = {
-        toLowerCase: true
-    };
     var objToValidate = _defineProperty({}, propName, 'ANGELOOCANA');
-    var validatedObj = V.validateString(propValidation, propName, objToValidate);
+    var validatedObj = V.toLowerCase(propName, objToValidate);
     assert.equal(validatedObj[propName], 'angeloocana');
 });
 //# sourceMappingURL=toLowerCase.test.js.map

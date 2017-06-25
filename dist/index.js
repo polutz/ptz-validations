@@ -52,6 +52,30 @@ Object.keys(_generateId).forEach(function (key) {
   });
 });
 
+var _min = require('./min');
+
+Object.keys(_min).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _min[key];
+    }
+  });
+});
+
+var _max = require('./max');
+
+Object.keys(_max).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _max[key];
+    }
+  });
+});
+
 var _required = require('./required');
 
 Object.keys(_required).forEach(function (key) {
@@ -76,62 +100,74 @@ Object.keys(_validate).forEach(function (key) {
   });
 });
 
-var _validateDate = require('./validateDate');
+var _isDate = require('./isDate');
 
-Object.keys(_validateDate).forEach(function (key) {
+Object.keys(_isDate).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _validateDate[key];
+      return _isDate[key];
     }
   });
 });
 
-var _validateEmail = require('./validateEmail');
+var _isEmail = require('./isEmail');
 
-Object.keys(_validateEmail).forEach(function (key) {
+Object.keys(_isEmail).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _validateEmail[key];
+      return _isEmail[key];
     }
   });
 });
 
-var _validateNumber = require('./validateNumber');
+var _isNumber = require('./isNumber');
 
-Object.keys(_validateNumber).forEach(function (key) {
+Object.keys(_isNumber).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _validateNumber[key];
+      return _isNumber[key];
     }
   });
 });
 
-var _validateString = require('./validateString');
+var _isString = require('./isString');
 
-Object.keys(_validateString).forEach(function (key) {
+Object.keys(_isString).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _validateString[key];
+      return _isString[key];
     }
   });
 });
 
-var _validatePrice = require('./validatePrice');
+var _toLowerCase = require('./toLowerCase');
 
-Object.keys(_validatePrice).forEach(function (key) {
+Object.keys(_toLowerCase).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _validatePrice[key];
+      return _toLowerCase[key];
+    }
+  });
+});
+
+var _toUpperCase = require('./toUpperCase');
+
+Object.keys(_toUpperCase).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _toUpperCase[key];
     }
   });
 });

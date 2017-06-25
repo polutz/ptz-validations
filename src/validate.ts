@@ -13,7 +13,7 @@ export interface IValidations {
     /**
      * propName and validation function.
      */
-    [key: string]: IValidateProp;
+    [key: string]: [IValidateProp];
 }
 
 type IValidate = <T>(validations: IValidations) => (obj: IHaveValidation & any) => T & IHaveValidation;
@@ -24,8 +24,8 @@ type IValidate = <T>(validations: IValidations) => (obj: IHaveValidation & any) 
 export const validate: IValidate = R.curry((validations: IValidations, obj: IHaveValidation & any) => {
     return R.keys(validations).reduce((accObj: IHaveValidation, propName) => {
 
-        const validateProp = validations[propName];
-        return validateProp(propName, accObj);
+        return validations[propName].reduce((accObj2, validation) =>
+            validation(propName, accObj2), accObj);
 
     }, obj);
 });

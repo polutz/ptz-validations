@@ -2,13 +2,10 @@ import * as assert from 'ptz-assert';
 import * as V from './index';
 it('toLowerCase', () => {
     const propName = 'userName';
-    const propValidation = {
-        toLowerCase: true
-    };
     const objToValidate = {
         [propName]: 'ANGELOOCANA'
     };
-    const validatedObj = V.validateString(propValidation, propName, objToValidate);
+    const validatedObj = V.toLowerCase(propName, objToValidate);
     assert.equal(validatedObj[propName], 'angeloocana');
 });
 //# sourceMappingURL=toLowerCase.test.js.map

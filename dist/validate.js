@@ -16,8 +16,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 var validate = exports.validate = _ramda2.default.curry(function (validations, obj) {
     return _ramda2.default.keys(validations).reduce(function (accObj, propName) {
-        var validateProp = validations[propName];
-        return validateProp(propName, accObj);
+        return validations[propName].reduce(function (accObj2, validation) {
+            return validation(propName, accObj2);
+        }, accObj);
     }, obj);
 });
 //# sourceMappingURL=validate.js.map
