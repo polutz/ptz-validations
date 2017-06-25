@@ -41,35 +41,42 @@ Example test of how to create a function to validate user:
             }
 
             const validateUser = V.validate<IUser>({
-                id: V.generateId,
-                displayName: V.validateString({
-                    required: true,
-                    minLength: 2,
-                    maxLength: 100
-                }),
-                userName: [
-                    V.string,
+                id: [
+                    V.generateId
+                ],
+                displayName: [
                     V.required,
+                    V.isString,
+                    V.min(2),
+                    V.max(100)
+                ],
+                userName: [
+                    V.required,
+                    V.isString,
                     V.min(2),
                     V.max(40),
                     V.toLowerCase
                 ],
-                password: V.validateString({
-                    required: true,
-                    minLength: 6,
-                    maxLength: 40
-                }),
-                email: V.validateEmail({
-                    required: true
-                }),
-                weight: V.validateNumber({
-                    min: 1,
-                    max: 1000
-                }),
-                birthday: V.validateDate({
-                    min: new Date('1800-01-01'),
-                    max: new Date()
-                })
+                password: [
+                    V.required,
+                    V.isString,
+                    V.min(6),
+                    V.max(40)
+                ],
+                email: [
+                    V.required,
+                    V.isEmail
+                ],
+                weight: [
+                    V.isNumber,
+                    V.min(1),
+                    V.max(1000)
+                ],
+                birthday: [
+                    V.isDate,
+                    V.min(new Date('1800-01-01')),
+                    V.max(new Date())
+                ]
             });
 
             const user = validateUser({
@@ -86,13 +93,13 @@ Example test of how to create a function to validate user:
                 password: 'abcd',
                 email: 'angeloocana@gmail.com',
                 weight: 90,
-                birthday: '1992-06-28',
+                birthday: new Date('1992-06-28'),
                 errors: [{
                     propName: 'displayName',
                     errorMsg: 'ERROR_REQUIRED'
                 }, {
                     propName: 'password',
-                    errorMsg: 'ERROR_MIN_LENGTH'
+                    errorMsg: 'ERROR_MIN'
                 }]
             };
 
@@ -101,7 +108,7 @@ Example test of how to create a function to validate user:
             assert.equal(user.password, expectedUser.password, 'set password');
             assert.equal(user.email, expectedUser.email, 'set email');
             assert.equal(user.weight, expectedUser.weight, 'set weight');
-            assert.equal(user.birthday, expectedUser.birthday, 'set birthday');
+            assert.equal(user.birthday.toString(), expectedUser.birthday.toString(), 'set birthday');
             assert.deepEqual(user.errors, expectedUser.errors, 'add errors');
         });
     });
