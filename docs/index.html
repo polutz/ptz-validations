@@ -102,12 +102,13 @@
                     minLength: <span class="hljs-number">2</span>,
                     maxLength: <span class="hljs-number">100</span>
                 }),
-                userName: V.validateString({
-                    required: <span class="hljs-literal">true</span>,
-                    minLength: <span class="hljs-number">2</span>,
-                    maxLength: <span class="hljs-number">40</span>,
-                    toLowerCase: <span class="hljs-literal">true</span>
-                }),
+                userName: [
+                    V.string,
+                    V.required,
+                    V.min(<span class="hljs-number">2</span>),
+                    V.max(<span class="hljs-number">40</span>),
+                    V.toLowerCase
+                ],
                 password: V.validateString({
                     required: <span class="hljs-literal">true</span>,
                     minLength: <span class="hljs-number">6</span>,
@@ -182,9 +183,6 @@
 						<a href="modules/_ihavevalidation_d_.html">"IHave<wbr>Validation.d"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_ipropvalidation_d_.html">"IProp<wbr>Validation.d"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
 						<a href="modules/_allerrors_.html">"all<wbr>Errors"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -197,25 +195,37 @@
 						<a href="modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_isdate_.html">"is<wbr>Date"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_isemail_.html">"is<wbr>Email"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_isnumber_.html">"is<wbr>Number"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_isstring_.html">"is<wbr>String"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_isvalid_.html">"is<wbr>Valid"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_max_.html">"max"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_min_.html">"min"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_required_.html">"required"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_tolowercase_.html">"to<wbr>Lower<wbr>Case"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_touppercase_.html">"to<wbr>Upper<wbr>Case"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_validate_.html">"validate"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validatedate_.html">"validate<wbr>Date"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validateemail_.html">"validate<wbr>Email"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validatenumber_.html">"validate<wbr>Number"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validateprice_.html">"validate<wbr>Price"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validatestring_.html">"validate<wbr>String"</a>
 					</li>
 				</ul>
 			</nav>

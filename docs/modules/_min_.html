@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;IPropValidation.d&quot; | ptz-validations</title>
+	<title>&quot;min&quot; | ptz-validations</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_ipropvalidation_d_.html">&quot;IPropValidation.d&quot;</a>
+					<a href="_min_.html">&quot;min&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;IPropValidation.d&quot;</h1>
+			<h1>External module &quot;min&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -69,34 +69,39 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
+							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_ipropvalidation_d_.ipropvalidation.html" class="tsd-kind-icon">IProp<wbr>Validation</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_ipropvalidation_d_.html#iarrayvalidation" class="tsd-kind-icon">IArray<wbr>Validation</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_min_.html#min" class="tsd-kind-icon">min</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_min_.html#minwitherror" class="tsd-kind-icon">min<wbr>With<wbr>Error</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
-					<a name="iarrayvalidation" class="tsd-anchor"></a>
-					<h3>IArray<wbr>Validation</h3>
-					<div class="tsd-signature tsd-kind-icon">IArray<wbr>Validation<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_ipropvalidation_d_.ipropvalidation.html" class="tsd-signature-type">IPropValidation</a></div>
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="min" class="tsd-anchor"></a>
+					<h3>min</h3>
+					<div class="tsd-signature tsd-kind-icon">min<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;minWithError(allErrors.MIN)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/IPropValidation.d.ts#L14">IPropValidation.d.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/min.ts#L22">min.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="minwitherror" class="tsd-anchor"></a>
+					<h3>min<wbr>With<wbr>Error</h3>
+					<div class="tsd-signature tsd-kind-icon">min<wbr>With<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction4</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((errorMsg: string, minValue, propName: string, obj: IHaveValidation) &#x3D;&gt; {const propValue &#x3D; R.prop&lt;string&gt;(propName, obj);if (R.isNil(propValue))return obj;// tslint:disable-next-line:no-string-literalif (minValue &gt; (propValue[&#x27;length&#x27;] ? propValue.length : propValue))return addError(obj, propName, errorMsg);return obj;})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/min.ts#L9">min.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Options to validate an array.</p>
+							<p>Adds error if prop is less than minValue.</p>
 						</div>
 					</div>
 				</section>
@@ -111,9 +116,6 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_ihavevalidation_d_.html">"IHave<wbr>Validation.d"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="_ipropvalidation_d_.html">"IProp<wbr>Validation.d"</a>
-					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_allerrors_.html">"all<wbr>Errors"</a>
 					</li>
@@ -127,35 +129,47 @@
 						<a href="_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_isdate_.html">"is<wbr>Date"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isemail_.html">"is<wbr>Email"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isnumber_.html">"is<wbr>Number"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isstring_.html">"is<wbr>String"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_isvalid_.html">"is<wbr>Valid"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_max_.html">"max"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_min_.html">"min"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_required_.html">"required"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_tolowercase_.html">"to<wbr>Lower<wbr>Case"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_touppercase_.html">"to<wbr>Upper<wbr>Case"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_validate_.html">"validate"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validatedate_.html">"validate<wbr>Date"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validateemail_.html">"validate<wbr>Email"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validatenumber_.html">"validate<wbr>Number"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validateprice_.html">"validate<wbr>Price"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validatestring_.html">"validate<wbr>String"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_ipropvalidation_d_.ipropvalidation.html" class="tsd-kind-icon">IProp<wbr>Validation</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_min_.html#min" class="tsd-kind-icon">min</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="_ipropvalidation_d_.html#iarrayvalidation" class="tsd-kind-icon">IArray<wbr>Validation</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_min_.html#minwitherror" class="tsd-kind-icon">min<wbr>With<wbr>Error</a>
 					</li>
 				</ul>
 			</nav>

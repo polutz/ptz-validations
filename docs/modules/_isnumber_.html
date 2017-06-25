@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;validateNumber&quot; | ptz-validations</title>
+	<title>&quot;isNumber&quot; | ptz-validations</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_validatenumber_.html">&quot;validateNumber&quot;</a>
+					<a href="_isnumber_.html">&quot;isNumber&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;validateNumber&quot;</h1>
+			<h1>External module &quot;isNumber&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -69,21 +69,10 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_validatenumber_.inumbervalidation.html" class="tsd-kind-icon">INumber<wbr>Validation</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_validatenumber_.html#validatenumber" class="tsd-kind-icon">validate<wbr>Number</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_validatenumber_.html#isvalidnumber" class="tsd-kind-icon">is<wbr>Valid<wbr>Number</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_isnumber_.html#isnumber" class="tsd-kind-icon">is<wbr>Number</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_isnumber_.html#isnumberwitherror" class="tsd-kind-icon">is<wbr>Number<wbr>With<wbr>Error</a></li>
 							</ul>
 						</section>
 					</div>
@@ -92,50 +81,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
-					<a name="validatenumber" class="tsd-anchor"></a>
-					<h3>validate<wbr>Number</h3>
-					<div class="tsd-signature tsd-kind-icon">validate<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_validatenumber_.inumbervalidation.html" class="tsd-signature-type">INumberValidation</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((opts: INumberValidation, propName: string, obj: IHaveValidation) &#x3D;&gt; {const propValue &#x3D; R.prop&lt;number&gt;(propName, obj);const addError &#x3D; addErrorBase(obj, propName);if (P.isNilOrEmpty(propValue))return opts.required? addError(opts.requiredError || allErrors.REQUIRED): obj;if (propValue &gt; opts.max)return addError(opts.maxError || allErrors.MAX_LENGTH);if (propValue &lt; opts.min)return addError(opts.minError || allErrors.MIN_LENGTH);return isValidNumber(propValue)? obj: addError(opts.invalidNumberError || allErrors.INVALID_NUMBER_ERROR);})</span></div>
+					<a name="isnumber" class="tsd-anchor"></a>
+					<h3>is<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction2</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;isNumberWithError(allErrors.INVALID_NUMBER_ERROR)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/validateNumber.ts#L27">validateNumber.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/isNumber.ts#L28">isNumber.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Validate Number</p>
+							<p>Validate Number.</p>
 						</div>
 					</div>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="isvalidnumber" class="tsd-anchor"></a>
-					<h3>is<wbr>Valid<wbr>Number</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Valid<wbr>Number<span class="tsd-signature-symbol">(</span>propValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/validateNumber.ts#L22">validateNumber.ts:22</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Checks if an number is valid.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>propValue: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="isnumberwitherror" class="tsd-anchor"></a>
+					<h3>is<wbr>Number<wbr>With<wbr>Error</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Number<wbr>With<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((errorMsg: string, propName: string, obj: IHaveValidation) &#x3D;&gt; {const propValue &#x3D; R.prop(propName, obj);if (R.isNil(propValue) || typeof propValue &#x3D;&#x3D;&#x3D; &#x27;number&#x27;)return obj;if (typeof propValue !&#x3D;&#x3D; &#x27;string&#x27;)return addError(obj, propName, errorMsg);const numPropValue &#x3D; parseFloat(propValue);return isNaN(numPropValue)? addError(obj, propName, errorMsg): R.assoc(propName, numPropValue, obj);})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/isNumber.ts#L9">isNumber.ts:9</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Validate Number.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -147,9 +120,6 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_ihavevalidation_d_.html">"IHave<wbr>Validation.d"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_ipropvalidation_d_.html">"IProp<wbr>Validation.d"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_allerrors_.html">"all<wbr>Errors"</a>
@@ -164,38 +134,47 @@
 						<a href="_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_isdate_.html">"is<wbr>Date"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isemail_.html">"is<wbr>Email"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_isnumber_.html">"is<wbr>Number"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isstring_.html">"is<wbr>String"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_isvalid_.html">"is<wbr>Valid"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_max_.html">"max"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_min_.html">"min"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_required_.html">"required"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_tolowercase_.html">"to<wbr>Lower<wbr>Case"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_touppercase_.html">"to<wbr>Upper<wbr>Case"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_validate_.html">"validate"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validatedate_.html">"validate<wbr>Date"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validateemail_.html">"validate<wbr>Email"</a>
-					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="_validatenumber_.html">"validate<wbr>Number"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validateprice_.html">"validate<wbr>Price"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validatestring_.html">"validate<wbr>String"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_validatenumber_.inumbervalidation.html" class="tsd-kind-icon">INumber<wbr>Validation</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_isnumber_.html#isnumber" class="tsd-kind-icon">is<wbr>Number</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="_validatenumber_.html#validatenumber" class="tsd-kind-icon">validate<wbr>Number</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_validatenumber_.html#isvalidnumber" class="tsd-kind-icon">is<wbr>Valid<wbr>Number</a>
+						<a href="_isnumber_.html#isnumberwitherror" class="tsd-kind-icon">is<wbr>Number<wbr>With<wbr>Error</a>
 					</li>
 				</ul>
 			</nav>

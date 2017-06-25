@@ -98,7 +98,7 @@
 					<div class="tsd-signature tsd-kind-icon">IValidate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/validate.ts#L19">validate.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/validate.ts#L19">validate.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -156,7 +156,7 @@
 					<div class="tsd-signature tsd-kind-icon">IValidate<wbr>Prop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/validate.ts#L7">validate.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/validate.ts#L7">validate.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -195,10 +195,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="validate" class="tsd-anchor"></a>
 					<h3>validate</h3>
-					<div class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">:</span> <a href="_validate_.html#ivalidate" class="tsd-signature-type">IValidate</a><span class="tsd-signature-symbol"> =&nbsp;R.curry((validations: IValidations, obj: IHaveValidation &amp; any) &#x3D;&gt; {return R.keys(validations).reduce((accObj: IHaveValidation, propName) &#x3D;&gt; {const validateProp &#x3D; validations[propName];return validateProp(propName, accObj);}, obj);})</span></div>
+					<div class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">:</span> <a href="_validate_.html#ivalidate" class="tsd-signature-type">IValidate</a><span class="tsd-signature-symbol"> =&nbsp;R.curry((validations: IValidations, obj: IHaveValidation &amp; any) &#x3D;&gt; {return R.keys(validations).reduce((accObj: IHaveValidation, propName) &#x3D;&gt; {return validations[propName].reduce((accObj2, validation) &#x3D;&gt;validation(propName, accObj2), accObj);}, obj);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/validate.ts#L24">validate.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/validate.ts#L24">validate.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -219,9 +219,6 @@
 						<a href="_ihavevalidation_d_.html">"IHave<wbr>Validation.d"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_ipropvalidation_d_.html">"IProp<wbr>Validation.d"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
 						<a href="_allerrors_.html">"all<wbr>Errors"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -234,25 +231,37 @@
 						<a href="_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_isdate_.html">"is<wbr>Date"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isemail_.html">"is<wbr>Email"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isnumber_.html">"is<wbr>Number"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isstring_.html">"is<wbr>String"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_isvalid_.html">"is<wbr>Valid"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_max_.html">"max"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_min_.html">"min"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_required_.html">"required"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_tolowercase_.html">"to<wbr>Lower<wbr>Case"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_touppercase_.html">"to<wbr>Upper<wbr>Case"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="_validate_.html">"validate"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validatedate_.html">"validate<wbr>Date"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validateemail_.html">"validate<wbr>Email"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validatenumber_.html">"validate<wbr>Number"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validateprice_.html">"validate<wbr>Price"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_validatestring_.html">"validate<wbr>String"</a>
 					</li>
 				</ul>
 			</nav>

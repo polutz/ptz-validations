@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IPropValidation | ptz-validations</title>
+	<title>&quot;toUpperCase&quot; | ptz-validations</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,86 +54,45 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_ipropvalidation_d_.html">&quot;IPropValidation.d&quot;</a>
-				</li>
-				<li>
-					<a href="_ipropvalidation_d_.ipropvalidation.html">IPropValidation</a>
+					<a href="_touppercase_.html">&quot;toUpperCase&quot;</a>
 				</li>
 			</ul>
-			<h1>Interface IPropValidation</h1>
+			<h1>External module &quot;toUpperCase&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Validate any prop.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">IPropValidation</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="_validatedate_.idatevalidation.html" class="tsd-signature-type">IDateValidation</a>
-							</li>
-							<li>
-								<a href="_validatestring_.istringvalidation.html" class="tsd-signature-type">IStringValidation</a>
-							</li>
-							<li>
-								<a href="_validateemail_.iemailvalidation.html" class="tsd-signature-type">IEmailValidation</a>
-							</li>
-							<li>
-								<a href="_validatenumber_.inumbervalidation.html" class="tsd-signature-type">INumberValidation</a>
-							</li>
-							<li>
-								<a href="_validateprice_.ipricevalidation.html" class="tsd-signature-type">IPriceValidation</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_ipropvalidation_d_.ipropvalidation.html#required" class="tsd-kind-icon">required</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_ipropvalidation_d_.ipropvalidation.html#requirederror" class="tsd-kind-icon">required<wbr>Error</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_touppercase_.html#touppercase" class="tsd-kind-icon">to<wbr>Upper<wbr>Case</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="required" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> required</h3>
-					<div class="tsd-signature tsd-kind-icon">required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="touppercase" class="tsd-anchor"></a>
+					<h3>to<wbr>Upper<wbr>Case</h3>
+					<div class="tsd-signature tsd-kind-icon">to<wbr>Upper<wbr>Case<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction2</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_ihavevalidation_d_.ihavevalidation.html" class="tsd-signature-type">IHaveValidation</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((propName: string, obj: IHaveValidation) &#x3D;&gt; {const propValue &#x3D; R.prop&lt;string&gt;(propName, obj);return R.assoc(propName, propValue.toUpperCase(), obj);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/IPropValidation.d.ts#L7">IPropValidation.d.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/dc7fbb4/src/toUpperCase.ts#L7">toUpperCase.ts:7</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="requirederror" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> required<wbr>Error</h3>
-					<div class="tsd-signature tsd-kind-icon">required<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/9bbd1bd/src/IPropValidation.d.ts#L8">IPropValidation.d.ts:8</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>returns a new object with some prop toUpperCase.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -144,65 +103,59 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_ihavevalidation_d_.html">"IHave<wbr>Validation.d"</a>
+						<a href="_ihavevalidation_d_.html">"IHave<wbr>Validation.d"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_allerrors_.html">"all<wbr>Errors"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_error_.html">"error"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_generateid_.html">"generate<wbr>Id"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isdate_.html">"is<wbr>Date"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isemail_.html">"is<wbr>Email"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isnumber_.html">"is<wbr>Number"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isstring_.html">"is<wbr>String"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_isvalid_.html">"is<wbr>Valid"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_max_.html">"max"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_min_.html">"min"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_required_.html">"required"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_tolowercase_.html">"to<wbr>Lower<wbr>Case"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_ipropvalidation_d_.html">"IProp<wbr>Validation.d"</a>
+						<a href="_touppercase_.html">"to<wbr>Upper<wbr>Case"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_allerrors_.html">"all<wbr>Errors"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_error_.html">"error"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_generateid_.html">"generate<wbr>Id"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_index_.html">"index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_isvalid_.html">"is<wbr>Valid"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_validate_.html">"validate"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_validatedate_.html">"validate<wbr>Date"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_validateemail_.html">"validate<wbr>Email"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_validatenumber_.html">"validate<wbr>Number"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_validateprice_.html">"validate<wbr>Price"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_validatestring_.html">"validate<wbr>String"</a>
+						<a href="_validate_.html">"validate"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_ipropvalidation_d_.ipropvalidation.html" class="tsd-kind-icon">IProp<wbr>Validation</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_ipropvalidation_d_.ipropvalidation.html#required" class="tsd-kind-icon">required</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_ipropvalidation_d_.ipropvalidation.html#requirederror" class="tsd-kind-icon">required<wbr>Error</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_ipropvalidation_d_.html#iarrayvalidation" class="tsd-kind-icon">IArray<wbr>Validation</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_touppercase_.html#touppercase" class="tsd-kind-icon">to<wbr>Upper<wbr>Case</a>
 					</li>
 				</ul>
 			</nav>
