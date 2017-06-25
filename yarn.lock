@@ -2210,7 +2210,7 @@ ptz-fp@^1.0.0:
     ptz-log "^1.0.0"
     ramda "^0.24.0"
 
-ptz-log@^1.0.0:
+ptz-log@^1.0.0, ptz-log@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ptz-log/-/ptz-log-1.0.1.tgz#8a91c18a4b34a70241ed9a0489b128c21c8ccc75"
   dependencies:

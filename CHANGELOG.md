@@ -1,6 +1,6 @@
 ## master
 
-## 3.0.0 (June .., 2017)
+## 3.0.0 (June 25, 2017)
 
 * Change validate from prop Function to prop Array of Functions.
 * Add:

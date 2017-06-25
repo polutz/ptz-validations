@@ -1,6 +1,6 @@
 {
   "name": "ptz-validations",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "Validate your js objects.",
   "main": "dist/index.js",
   "typings": "src/index.ts",
@@ -51,7 +51,7 @@
     "@types/ramda": "0.0.10",
     "@types/shortid": "0.0.29",
     "ptz-fp": "^1.0.0",
-    "ptz-log": "^1.0.0",
+    "ptz-log": "^1.0.1",
     "ramda": "^0.24.1",
     "shortid": "^2.2.8"
   }
