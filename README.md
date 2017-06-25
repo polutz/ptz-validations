@@ -47,12 +47,13 @@ Example test of how to create a function to validate user:
                     minLength: 2,
                     maxLength: 100
                 }),
-                userName: V.validateString({
-                    required: true,
-                    minLength: 2,
-                    maxLength: 40,
-                    toLowerCase: true
-                }),
+                userName: [
+                    V.string,
+                    V.required,
+                    V.min(2),
+                    V.max(40),
+                    V.toLowerCase
+                ],
                 password: V.validateString({
                     required: true,
                     minLength: 6,

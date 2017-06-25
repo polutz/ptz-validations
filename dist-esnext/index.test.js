@@ -9,12 +9,13 @@ describe('ptz-validations', () => {
                 minLength: 2,
                 maxLength: 100
             }),
-            userName: V.validateString({
-                required: true,
-                minLength: 2,
-                maxLength: 40,
-                toLowerCase: true
-            }),
+            // userName: [
+            //     V.string,
+            //     V.required,
+            //     V.min(2),
+            //     V.max(40),
+            //     V.toLowerCase
+            // ],
             password: V.validateString({
                 required: true,
                 minLength: 6,
@@ -41,7 +42,7 @@ describe('ptz-validations', () => {
         });
         const expectedUser = {
             id: 'hfk397d',
-            userName: 'angeloocana',
+            // userName: 'angeloocana',
             password: 'abcd',
             email: 'angeloocana@gmail.com',
             weight: 90,
@@ -55,7 +56,7 @@ describe('ptz-validations', () => {
                 }]
         };
         assert.ok(user.id, 'generate id');
-        assert.equal(user.userName, expectedUser.userName, 'set userName');
+        // assert.equal(user.userName, expectedUser.userName, 'set userName');
         assert.equal(user.password, expectedUser.password, 'set password');
         assert.equal(user.email, expectedUser.email, 'set email');
         assert.equal(user.weight, expectedUser.weight, 'set weight');

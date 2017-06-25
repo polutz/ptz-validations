@@ -21,7 +21,6 @@ describe('validate', function () {
         });
         var user = createUser({});
         var error = { propName: 'userName', errorMsg: V.allErrors.REQUIRED };
-        console.log(user);
         assert.ok(V.containsError(error, user.errors));
     });
     it('valid user', function () {
@@ -33,7 +32,6 @@ describe('validate', function () {
             })
         });
         var user = createUser({ userName: 'angeloocana' });
-        console.log(user);
         assert.emptyArray(user.errors);
     });
 });

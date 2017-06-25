@@ -52,6 +52,18 @@ Object.keys(_generateId).forEach(function (key) {
   });
 });
 
+var _required = require('./required');
+
+Object.keys(_required).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _required[key];
+    }
+  });
+});
+
 var _validate = require('./validate');
 
 Object.keys(_validate).forEach(function (key) {
