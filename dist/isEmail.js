@@ -31,7 +31,6 @@ var isValidEmail = exports.isValidEmail = _ramda2.default.test(/^(([^<>()\[\]\\.
  *  - toLowerCase.
  *  - Checks if It is a valid E-mail.
  */
-// tslint:disable-line:max-line-length
 var isEmailWithError = exports.isEmailWithError = _ramda2.default.curry(function (errorMsg, propName, obj) {
   obj = (0, _isString.isStringWithError)(errorMsg, propName, obj);
   obj = (0, _toLowerCase.toLowerCase)(propName, obj);

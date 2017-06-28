@@ -23,8 +23,6 @@ describe('isDate', function () {
     it('string', function () {
         var objToValidate = _defineProperty({}, propName, 'abc');
         var validatedObj = V.isDate(propName, objToValidate);
-        console.log('validatedObj', validatedObj);
-        console.log('error', error);
         assert.ok(V.containsError(error, validatedObj.errors));
     });
     it('number', function () {

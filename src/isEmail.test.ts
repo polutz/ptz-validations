@@ -16,7 +16,10 @@ describe('isEmail', () => {
         const error = { propName, errorMsg: V.allErrors.INVALID_EMAIL };
 
         it('add error when invalid email', () => {
-            const objToValidate = { email: 'angeloocana_gmail_com' };
+            const objToValidate = {
+                email: 'angeloocana_gmail_com',
+                errors: []
+            };
 
             const validatedObj = V.isEmail(propName, objToValidate);
 
@@ -24,7 +27,10 @@ describe('isEmail', () => {
         });
 
         it('do NOT add error when valid email', () => {
-            const objToValidate = { email: 'angeloocana@gmail.com' };
+            const objToValidate = {
+                email: 'angeloocana@gmail.com',
+                errors: []
+            };
 
             const validatedObj = V.isEmail(propName, objToValidate);
 

@@ -13,7 +13,6 @@ export const isValidEmail = R.test(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:
  *  - toLowerCase.
  *  - Checks if It is a valid E-mail.
  */
-// tslint:disable-line:max-line-length
 export const isEmailWithError = R.curry((errorMsg, propName, obj) => {
     obj = isStringWithError(errorMsg, propName, obj);
     obj = toLowerCase(propName, obj);

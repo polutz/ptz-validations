@@ -23,12 +23,18 @@ describe('isEmail', function () {
         var propName = 'email';
         var error = { propName: propName, errorMsg: V.allErrors.INVALID_EMAIL };
         it('add error when invalid email', function () {
-            var objToValidate = { email: 'angeloocana_gmail_com' };
+            var objToValidate = {
+                email: 'angeloocana_gmail_com',
+                errors: []
+            };
             var validatedObj = V.isEmail(propName, objToValidate);
             assert.ok(V.containsError(error, validatedObj.errors));
         });
         it('do NOT add error when valid email', function () {
-            var objToValidate = { email: 'angeloocana@gmail.com' };
+            var objToValidate = {
+                email: 'angeloocana@gmail.com',
+                errors: []
+            };
             var validatedObj = V.isEmail(propName, objToValidate);
             assert.notOk(V.containsError(error, validatedObj.errors));
         });
