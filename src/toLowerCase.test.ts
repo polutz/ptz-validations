@@ -20,6 +20,5 @@ it('toLowerCase', () => {
     };
 
     const validatedObj = V.toLowerCase(propName, objToValidate);
-    assert.notOk(validatedObj);
-    // assert.equal(validatedObj[propName], 'angeloocana');
+    assert.equal(validatedObj[propName], null);
 });

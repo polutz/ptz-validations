@@ -8,4 +8,5 @@ export const toLowerCase = R.curry((propName: string, obj: IHaveValidation) => {
     const propValue = R.prop<string>(propName, obj);
     if (propValue)
         return R.assoc(propName, propValue.toLowerCase(), obj);
+    return obj;
 });

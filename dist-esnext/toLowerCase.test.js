@@ -14,7 +14,6 @@ it('toLowerCase', () => {
         [propName]: null
     };
     const validatedObj = V.toLowerCase(propName, objToValidate);
-    assert.notOk(validatedObj);
-    // assert.equal(validatedObj[propName], 'angeloocana');
+    assert.equal(validatedObj[propName], null);
 });
 //# sourceMappingURL=toLowerCase.test.js.map
