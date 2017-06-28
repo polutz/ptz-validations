@@ -18,5 +18,12 @@ it('toLowerCase', function () {
     var validatedObj = V.toLowerCase(propName, objToValidate);
     assert.equal(validatedObj[propName], 'angeloocana');
 });
+it('toLowerCase', function () {
+    var propName = 'userName';
+    var objToValidate = _defineProperty({}, propName, null);
+    var validatedObj = V.toLowerCase(propName, objToValidate);
+    assert.notOk(validatedObj);
+    // assert.equal(validatedObj[propName], 'angeloocana');
+});
 //# sourceMappingURL=toLowerCase.test.js.map
 //# sourceMappingURL=toLowerCase.test.js.map

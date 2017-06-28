@@ -66,6 +66,25 @@ describe('validate', function () {
         assert.equal(user.birthday.toString(), expectedUser.birthday.toString(), 'set birthday');
         assert.deepEqual(user.errors, expectedUser.errors, 'add errors');
     });
+    it('createUser null username', function () {
+        var validateUser = V.validate({
+            id: [V.generateId],
+            displayName: [V.required, V.isString, V.min(2), V.max(100)],
+            userName: [V.required, V.isString, V.min(2), V.max(40), V.toLowerCase],
+            password: [V.required, V.isString, V.min(6), V.max(40)],
+            email: [V.required, V.isEmail],
+            weight: [V.isNumber, V.min(1), V.max(1000)],
+            birthday: [V.isDate, V.min(new Date('1800-01-01')), V.max(new Date())]
+        });
+        var user = validateUser({
+            userName: null,
+            password: 'abcd',
+            email: 'angeloocana@gmail.com',
+            weight: 90,
+            birthday: '1992-06-28'
+        });
+        assert.notOk(user);
+    });
 });
 //# sourceMappingURL=validate.test.js.map
 //# sourceMappingURL=validate.test.js.map

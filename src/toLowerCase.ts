@@ -6,6 +6,6 @@ import { IHaveValidation } from './IHaveValidation';
  */
 export const toLowerCase = R.curry((propName: string, obj: IHaveValidation) => {
     const propValue = R.prop<string>(propName, obj);
-
-    return R.assoc(propName, propValue.toLowerCase(), obj);
+    if (propValue)
+        return R.assoc(propName, propValue.toLowerCase(), obj);
 });
