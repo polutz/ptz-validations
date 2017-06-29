@@ -18,9 +18,6 @@ describe('isDate', () => {
 
         const validatedObj = V.isDate(propName, objToValidate);
 
-        console.log('validatedObj', validatedObj);
-        console.log('error', error);
-
         assert.ok(V.containsError(error, validatedObj.errors));
     });
 

@@ -1,4 +1,5 @@
 export const allErrors = {
+    NULL_ARGS: 'NULL_ARGS',
     REQUIRED: 'ERROR_REQUIRED',
     MIN: 'ERROR_MIN',
     MAX: 'ERROR_MAX',
