@@ -1,5 +1,6 @@
 # ptz-validations
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/068342fbeda7406681981883c0469928)](https://www.codacy.com/app/polutz/ptz-validations?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=polutz/ptz-validations&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/polutz/ptz-validations.svg)](https://travis-ci.org/polutz/ptz-validations)
 [![NPM](https://img.shields.io/npm/v/ptz-validations.svg)](https://www.npmjs.com/package/ptz-validations)
 [![codecov.io](http://codecov.io/github/polutz/ptz-validations/coverage.svg)](http://codecov.io/github/polutz/ptz-validations)
