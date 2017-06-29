@@ -92,7 +92,7 @@
 					<div class="tsd-signature tsd-kind-icon">IGen<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/d78fde4/src/generateId.ts#L8">generateId.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/alanmarcell/ptz-validations/blob/1855bfd/src/generateId.ts#L8">generateId.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -125,7 +125,7 @@
 					<div class="tsd-signature tsd-kind-icon">generate<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction2</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;generateIdWith(shortid.generate)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/d78fde4/src/generateId.ts#L29">generateId.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/alanmarcell/ptz-validations/blob/1855bfd/src/generateId.ts#L29">generateId.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -140,7 +140,7 @@
 					<div class="tsd-signature tsd-kind-icon">generate<wbr>IdWith<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CurriedFunction3</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;R.curry((genId: IGenId, propName: string, o: any): any &#x3D;&gt; {if (!o)return { [propName]: genId() };if (P.isNotNilOrEmpty(o[propName]))return o;const _id &#x3D; o[&#x27;_&#x27; + propName]; // tslint:disable-line:variable-nameconst id &#x3D; P.isNotNilOrEmpty(_id) ? _id : genId();return R.assoc(propName, id, o);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/polutz/ptz-validations/blob/d78fde4/src/generateId.ts#L13">generateId.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/alanmarcell/ptz-validations/blob/1855bfd/src/generateId.ts#L13">generateId.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

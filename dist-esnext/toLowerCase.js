@@ -4,8 +4,8 @@ import R from 'ramda';
  */
 export const toLowerCase = R.curry((propName, obj) => {
     const propValue = R.prop(propName, obj);
-    if (propValue)
-        return R.assoc(propName, propValue.toLowerCase(), obj);
-    return obj;
+    if (R.isNil(propValue))
+        return obj;
+    return R.assoc(propName, propValue.toLowerCase(), obj);
 });
 //# sourceMappingURL=toLowerCase.js.map

@@ -7,5 +7,7 @@ import { IHaveValidation } from './IHaveValidation';
 export const toUpperCase = R.curry((propName: string, obj: IHaveValidation) => {
     const propValue = R.prop<string>(propName, obj);
 
+    if (R.isNil(propValue)) return obj;
+
     return R.assoc(propName, propValue.toUpperCase(), obj);
 });

@@ -4,6 +4,8 @@ import R from 'ramda';
  */
 export const toUpperCase = R.curry((propName, obj) => {
     const propValue = R.prop(propName, obj);
+    if (R.isNil(propValue))
+        return obj;
     return R.assoc(propName, propValue.toUpperCase(), obj);
 });
 //# sourceMappingURL=toUpperCase.js.map

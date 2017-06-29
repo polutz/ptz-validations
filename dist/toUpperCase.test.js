@@ -12,11 +12,20 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-it('toUpperCase', function () {
-    var propName = 'userName';
-    var objToValidate = _defineProperty({}, propName, 'angeloocana');
-    var validatedObj = V.toUpperCase(propName, objToValidate);
-    assert.equal(validatedObj[propName], 'ANGELOOCANA');
+describe('toUpperCase', function () {
+    it('should UPPERCASE a string', function () {
+        var propName = 'userName';
+        var objToValidate = _defineProperty({}, propName, 'angeloocana');
+        var validatedObj = V.toUpperCase(propName, objToValidate);
+        assert.equal(validatedObj[propName], 'ANGELOOCANA');
+    });
+    it('should return NULL if propName is NULL', function () {
+        var propName = 'userName';
+        var objToValidate = _defineProperty({}, propName, null);
+        var validatedObj = V.toUpperCase(propName, objToValidate);
+        assert.equal(validatedObj[propName], null);
+        assert.notOk(validatedObj.errors);
+    });
 });
 //# sourceMappingURL=toUpperCase.test.js.map
 //# sourceMappingURL=toUpperCase.test.js.map

@@ -16,8 +16,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 var toLowerCase = exports.toLowerCase = _ramda2.default.curry(function (propName, obj) {
     var propValue = _ramda2.default.prop(propName, obj);
-    if (propValue) return _ramda2.default.assoc(propName, propValue.toLowerCase(), obj);
-    return obj;
+    if (_ramda2.default.isNil(propValue)) return obj;
+    return _ramda2.default.assoc(propName, propValue.toLowerCase(), obj);
 });
 //# sourceMappingURL=toLowerCase.js.map
 //# sourceMappingURL=toLowerCase.js.map

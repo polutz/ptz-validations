@@ -1,6 +1,6 @@
 {
-  "name": "@alanmarcell/ptz-validations",
-  "version": "0.0.2",
+  "name": "ptz-validations",
+  "version": "3.0.0",
   "description": "Validate your js objects.",
   "main": "dist/index.js",
   "typings": "src/index.ts",
