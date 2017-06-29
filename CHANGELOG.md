@@ -1,5 +1,10 @@
 ## master
 
+## 3.0.1 (June 29, 2017) 
+
+* Add error when validate args are null
+* Add toLowerCase and toUpperCase isNil validations and tests
+
 ## 3.0.0 (June 25, 2017)
 
 * Change validate from prop Function to prop Array of Functions.
