@@ -1,5 +1,4 @@
 import R from 'ramda';
-import { allErrors } from './allErrors';
 import { IHaveValidation } from './IHaveValidation';
 /**
  * Validate prop functions curried.
@@ -22,10 +21,10 @@ type IValidate = <T>(validations: IValidations) => (obj: IHaveValidation & any) 
  * Validate obj.
  */
 export const validate: IValidate = R.curry((validations: IValidations, obj: IHaveValidation & any) => {
-    if (!obj) throw new Error(allErrors.NULL_ARGS);
-
     return R.keys(validations).reduce((accObj: IHaveValidation, propName) => {
-        if (accObj) return validations[propName].reduce((accObj2, validation) =>
+
+        return validations[propName].reduce((accObj2, validation) =>
             validation(propName, accObj2), accObj);
+
     }, obj);
 });
