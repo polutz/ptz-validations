@@ -26,7 +26,7 @@ ptz-validations é um módulo Polutz.
 Exemplo de teste para criar uma função que cria/valida Usuários:
 ```typescript
     import * as assert from 'ptz-assert';
-    import * as V from './index';
+    import * as V from 'ptz-validations';
 
     describe('ptz-validations', () => {
         it('createUser example', () => {

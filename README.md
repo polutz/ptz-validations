@@ -26,7 +26,7 @@ Validate your js objects.
 Example test of how to create a function to validate user:
 ```typescript
     import * as assert from 'ptz-assert';
-    import * as V from './index';
+    import * as V from 'ptz-validations';
 
     describe('ptz-validations', () => {
         it('createUser example', () => {
