@@ -23,7 +23,51 @@ Validate your js objects.
 ```
 
 ### How to use
-Example test of how to create a function to validate user:
+
+#### Simple example
+```js
+    import * as V from 'ptz-validations';
+
+    const validateLogin = V.validate({
+        userName: [
+            V.required,
+            V.isString,
+            V.min(2),
+            V.max(40),
+            V.toLowerCase
+        ],
+        password: [
+            V.required,
+            V.isString,
+            V.min(6),
+            V.max(40)
+        ]
+    });
+
+    const login = validateLogin({
+        userName: '',
+        password: 'abcd'
+    });
+
+    /* login Output with errors:
+    {
+        userName: '',
+        password: 'abcd',
+        errors: [{
+            propName: 'userName',
+            errorMsg: 'ERROR_REQUIRED'
+        }, {
+            propName: 'password',
+            errorMsg: 'ERROR_MIN'
+        }]
+    }
+    */
+```
+
+#### Complex example
+Example test of how to create a function to validate user.
+
+**assert, describe, it** are used to test this code, this is a copy paste of a real code.
 ```typescript
     import * as assert from 'ptz-assert';
     import * as V from 'ptz-validations';
