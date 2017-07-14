@@ -14,17 +14,14 @@
 
 Validate your js objects.
 
-
-## Use
-
-### Install
+## Install
 ```bash
     npm install --save ptz-validations
 ```
 
-### How to use
+## How to use
 
-#### Simple example
+### Simple example
 ```js
     import * as V from 'ptz-validations';
 
@@ -64,7 +61,7 @@ Validate your js objects.
     */
 ```
 
-#### Complex example
+### Complex example
 Example test of how to create a function to validate user.
 
 **assert, describe, it** are used to test this code, this is a copy paste of a real code.
@@ -158,6 +155,35 @@ Example test of how to create a function to validate user.
         });
     });
 
+```
+
+### Create your own custom validation function
+
+Create a curried function using **ramda**.
+This function must receive:
+- **errorMsg**: optional, it is good for enabling custom error messages;
+- **propName**: will be the property name of the object you are validating;
+- **obj**: the instance of the object to be validated.
+
+```js
+    import R from 'ramda';
+    import * as V from 'ptz-validations';
+
+    /**
+    * Checks if an object prop is even:
+    *   - true: return the same object
+    *   - false: return a new object with errorMsg
+    */
+    export const isEvenWithError = R.curry((errorMsg, propName, obj) => {
+
+        const propValue = R.prop(propName, obj);
+
+        return R.isEven(propValue)
+            ? obj
+            : V.addError(obj, propName, errorMsg);
+    });
+
+    export const isEven = isEvenWithError('DEFAULT_EVEN_ERROR_MSG');
 ```
 
 ## Contribute
